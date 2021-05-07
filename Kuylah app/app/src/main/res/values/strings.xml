@@ -18,4 +18,6 @@
     <string name="detail_itinerary">Detail Itinerary</string>
     <string name="itinerary_title">First trip to jogja uhuy</string>
     <string name="day">Day 1</string>
+    <string name="item_title">Itinerary\'s Title</string>
+    <string name="day_price">3 D • Rp800.000.-</string>
 </resources>

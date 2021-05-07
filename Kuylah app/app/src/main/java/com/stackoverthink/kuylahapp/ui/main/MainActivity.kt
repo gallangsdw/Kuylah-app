@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.bottom_nav)
         val navController = findNavController(R.id.fragment)
 
-        var title: TextView = findViewById(R.id.tv_title)
+        val title: TextView = findViewById(R.id.tv_title)
         title.text = getString(R.string.home)
 
         navView.setupWithNavController(navController)

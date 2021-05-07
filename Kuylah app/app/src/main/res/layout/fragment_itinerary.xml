@@ -55,8 +55,7 @@
         android:layout_marginTop="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_itineraries" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/tv_itineraries"
+        tools:listitem="@layout/item_itinerary"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
