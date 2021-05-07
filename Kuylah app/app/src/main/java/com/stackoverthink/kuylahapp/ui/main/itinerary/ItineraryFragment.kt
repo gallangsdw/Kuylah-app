@@ -6,22 +6,90 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.R
+import com.stackoverthink.kuylahapp.databinding.FragmentItineraryBinding
 
 class ItineraryFragment : Fragment() {
+    private lateinit var dataTitles: Array<String>
+    private lateinit var days: Array<String>
+    private lateinit var dataBudgets: Array<String>
+    private lateinit var categories: Array<MutableList<String>>
+    private lateinit var binding: FragmentItineraryBinding
+    private var dataItineraries = arrayListOf<Itinerary>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_itinerary, container, false)
+        binding = FragmentItineraryBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        prepare()
+        addItem()
+        showRecycleList(dataItineraries)
+    }
+
+    private fun showRecycleList(itinerary: ArrayList<Itinerary>) {
+        val followAdapter = ItineraryAdapter(itinerary)
+        binding.rvItineraries.layoutManager = LinearLayoutManager(activity)
+        binding.rvItineraries.adapter = followAdapter
     }
 
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        var title: TextView = view.findViewById(R.id.tv_title)
-//        title.text = getString(R.string.my_itinerary)
-//    }
+    fun prepare(){
+        dataTitles = arrayOf(
+            "Jalan2 ke jogja for the first time!",
+            "Ke jogja lagi akhirnya",
+            "Jogjaaaaa",
+            "Terpaksa ke jogja",
+            "Ke jogja lagiii",
+            "Jogja lur"
+        )
+
+        days = arrayOf(
+            "3 D",
+            "2 D",
+            "1 D",
+            "2 D",
+            "2 D",
+            "2 D"
+        )
+
+        dataBudgets = arrayOf(
+            "Rp500.000",
+            "Rp400.000",
+            "Rp800.000",
+            "Rp120.000",
+            "Rp50.000",
+            "Rp60.000"
+        )
+
+        categories = arrayOf(
+            mutableListOf("Beach", "Natural"),
+            mutableListOf("Beach", "Natural", "Cultural and Historical"),
+            mutableListOf("Beach", "Natural"),
+            mutableListOf("Beach", "Natural"),
+            mutableListOf("Beach", "Natural"),
+            mutableListOf("Beach", "Natural", "Museum", "Art Gallery and Exhibition")
+        )
+    }
+
+    fun addItem(){
+        for (position in dataTitles.indices){
+            val itinerary = Itinerary(
+                dataTitles[position],
+                days[position],
+                dataBudgets[position],
+                categories[position]
+            )
+            dataItineraries.add(itinerary)
+        }
+    }
 }
