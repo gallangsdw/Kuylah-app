@@ -32,4 +32,8 @@
     <string name="art_gallery_and_exhibition">Art Gallery and Exhibition</string>
     <string name="culinary">Culinary</string>
     <string name="generate_itinerary">Generate Itinerary</string>
+    <string name="destination">Destination</string>
+    <string name="time">11:00 AM - 12:00 AM</string>
+    <string name="dot">•</string>
+    <string name="day_2">Day 2</string>
 </resources>
