@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="18dp"
+    android:background="@drawable/rounded_dialog_background"
+    android:padding="24dp"
     android:orientation="vertical"
     tools:context=".ui.main.itinerary.FormDialogFragment">
 
@@ -59,17 +60,20 @@
 
     <com.google.android.material.chip.ChipGroup
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip4"
             android:text="@string/beach"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip5"
             android:text="@string/nature"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -77,31 +81,52 @@
             android:id="@+id/chip6"
             android:text="@string/cultural_and_historical"
             android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip7"
             android:text="@string/museum"
             android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip8"
             android:text="@string/artificial"
             android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip9"
             android:text="@string/art_gallery_and_exhibition"
             android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip10"
             android:text="@string/culinary"
             android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/btn_generate_itinerary"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/background_button"
+        android:fontFamily="@font/inter_semibold"
+        android:letterSpacing="0"
+        android:text="@string/generate_itinerary"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        tools:ignore="UnusedAttribute" />
 </LinearLayout>

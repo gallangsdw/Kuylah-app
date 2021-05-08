@@ -22,7 +22,7 @@
     <string name="day_price">3 D • Rp800.000.-</string>
     <string name="what_title">What would be the title of your itinerary?</string>
     <string name="how_days">How many day(s) you are going to spend?</string>
-    <string name="what_budget">The budget that you are preparing?</string>
+    <string name="what_budget">How many budget that you are preparing (in IDR)?</string>
     <string name="what_preferences">What is your destination preference(s)?</string>
     <string name="beach">Beach</string>
     <string name="nature">Nature</string>
@@ -31,4 +31,5 @@
     <string name="artificial">Artificial</string>
     <string name="art_gallery_and_exhibition">Art Gallery and Exhibition</string>
     <string name="culinary">Culinary</string>
+    <string name="generate_itinerary">Generate Itinerary</string>
 </resources>
