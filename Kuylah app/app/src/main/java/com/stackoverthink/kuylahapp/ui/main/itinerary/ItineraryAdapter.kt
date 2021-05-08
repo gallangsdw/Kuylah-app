@@ -3,21 +3,23 @@ package com.stackoverthink.kuylahapp.ui.main.itinerary
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.ItemItineraryBinding
-import java.lang.StringBuilder
 
-class ItineraryAdapter (private val listItinerary: ArrayList<Itinerary>) : RecyclerView.Adapter<ItineraryAdapter.ListViewHolder>() {
+
+class ItineraryAdapter(private val listItinerary: ArrayList<Itinerary>) : RecyclerView.Adapter<ItineraryAdapter.ListViewHolder>() {
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = ItemItineraryBinding.bind(itemView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_itinerary,
-            parent,
-false
+                R.layout.item_itinerary,
+                parent,
+                false
         )
         return ListViewHolder(view)
     }
@@ -32,6 +34,10 @@ false
         holder.binding.tvTitleItem.text = itinerary.title
         holder.binding.tvDayPrice.text = "${itinerary.day} • ${itinerary.budget}"
         holder.binding.tvCategories.text = builder.toString()
+
+        holder.itemView.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int {

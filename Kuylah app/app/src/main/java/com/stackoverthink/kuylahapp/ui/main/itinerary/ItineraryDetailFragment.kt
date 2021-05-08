@@ -9,6 +9,10 @@ import com.stackoverthink.kuylahapp.R
 
 class ItineraryDetailFragment : Fragment() {
 
+    companion object{
+        const val EXTRA_ITINERARY = "extra_itinerary"
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

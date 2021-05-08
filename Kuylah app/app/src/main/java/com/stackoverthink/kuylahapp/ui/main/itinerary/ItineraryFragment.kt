@@ -15,6 +15,10 @@ class ItineraryFragment : Fragment() {
     private lateinit var days: Array<String>
     private lateinit var dataBudgets: Array<String>
     private lateinit var categories: Array<MutableList<String>>
+    private lateinit var destinationName: Array<String>
+    private lateinit var destinationTime: Array<String>
+    private lateinit var destinations: ArrayList<Destination>
+    private lateinit var mDestinations: Destination
     private lateinit var binding: FragmentItineraryBinding
     private var dataItineraries = arrayListOf<Itinerary>()
 
@@ -79,6 +83,31 @@ class ItineraryFragment : Fragment() {
             mutableListOf("Beach", "Natural"),
             mutableListOf("Beach", "Natural", "Museum", "Art Gallery and Exhibition")
         )
+
+        destinationName = arrayOf(
+                "Kopi Klotok",
+                "Bukit Klangon Merapi",
+                "Situs Warung Boto",
+        )
+
+        destinationTime = arrayOf(
+                "07:00 AM - 09:00 AM",
+                "10:00 AM - 12:00 PM",
+                "01:00 PM - 03:00 PM"
+        )
+
+        
+
+
+
+//        for (position in destinations.indices){
+//            val destinationData = Destination(
+//                    destinationName[position],
+//                    destinationTime[position]
+//            )
+//            destinations.add(destinationData)
+//        }
+
     }
 
     fun addItem(){
@@ -87,9 +116,11 @@ class ItineraryFragment : Fragment() {
                 dataTitles[position],
                 days[position],
                 dataBudgets[position],
-                categories[position]
+                categories[position],
+                    null
             )
             dataItineraries.add(itinerary)
         }
+
     }
 }
