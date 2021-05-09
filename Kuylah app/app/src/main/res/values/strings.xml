@@ -36,4 +36,12 @@
     <string name="time">11:00 AM - 12:00 AM</string>
     <string name="dot">•</string>
     <string name="day_2">Day 2</string>
+    <string name="name">Sulaiman</string>
+    <string name="email_title">email</string>
+    <string name="name_title">nama</string>
+    <string name="email_address">sulaiman@gmail.com</string>
+    <string name="phone_title">phone</string>
+    <string name="phone_number">018181818</string>
+    <string name="btn_logout">logout</string>
+    <string name="profile_desc">foto profil</string>
 </resources>

@@ -8,16 +8,16 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/itineraryFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.ItineraryFragment"
-        android:label="fragment_itinerary"
+        android:label="itinerary"
         tools:layout="@layout/fragment_itinerary" />
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.setting.SettingFragment"
-        android:label="fragment_setting"
+        android:label="setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>
