@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "692565789439",
+    "project_id": "helpful-ally-313106",
+    "storage_bucket": "helpful-ally-313106.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692565789439:android:2ae138e482212f35ec9aca",
+        "android_client_info": {
+          "package_name": "com.stackoverthink.kuylahapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692565789439-0h2i3imtktam4senii1cdgngv21kbo7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGQWt90V-hOCcc4s0A9E3wjijUPeijV1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692565789439-0h2i3imtktam4senii1cdgngv21kbo7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
