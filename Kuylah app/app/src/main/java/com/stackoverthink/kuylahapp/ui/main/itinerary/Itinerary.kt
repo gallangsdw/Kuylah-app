@@ -9,7 +9,13 @@ data class Itinerary(
         var day: String? = "",
         var budget: String? = "",
         var category: MutableList<String>?,
-        var destination: ArrayList<Destination>?
+        var schedule: ArrayList<Day>?
+) : Parcelable
+
+@Parcelize
+data class Day(
+    var id: Int? = 0,
+    var destination: ArrayList<Destination>
 ) : Parcelable
 
 @Parcelize

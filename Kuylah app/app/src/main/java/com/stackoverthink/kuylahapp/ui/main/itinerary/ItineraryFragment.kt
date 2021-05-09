@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryBinding
@@ -15,10 +16,10 @@ class ItineraryFragment : Fragment() {
     private lateinit var days: Array<String>
     private lateinit var dataBudgets: Array<String>
     private lateinit var categories: Array<MutableList<String>>
+    private var schedules = arrayListOf<Day>()
     private lateinit var destinationName: Array<String>
     private lateinit var destinationTime: Array<String>
-    private lateinit var destinations: ArrayList<Destination>
-    private lateinit var mDestinations: Destination
+    private var destinations = arrayListOf<Destination>()
     private lateinit var binding: FragmentItineraryBinding
     private var dataItineraries = arrayListOf<Itinerary>()
 
@@ -38,6 +39,8 @@ class ItineraryFragment : Fragment() {
         prepare()
         addItem()
         showRecycleList(dataItineraries)
+
+
     }
 
     private fun showRecycleList(itinerary: ArrayList<Itinerary>) {
@@ -47,7 +50,7 @@ class ItineraryFragment : Fragment() {
     }
 
 
-    fun prepare(){
+    private fun prepare(){
         dataTitles = arrayOf(
             "Jalan2 ke jogja for the first time!",
             "Ke jogja lagi akhirnya",
@@ -96,31 +99,35 @@ class ItineraryFragment : Fragment() {
                 "01:00 PM - 03:00 PM"
         )
 
-        
 
+        for (position in destinationName.indices){
+            val destinationData = Destination(
+                    destinationName[position],
+                    destinationTime[position]
+            )
+            destinations.add(destinationData)
+        }
 
+        val Day = Day(
+            1,
+            destinations
+        )
 
-//        for (position in destinations.indices){
-//            val destinationData = Destination(
-//                    destinationName[position],
-//                    destinationTime[position]
-//            )
-//            destinations.add(destinationData)
-//        }
+        schedules.add(Day)
+
 
     }
 
-    fun addItem(){
+    private fun addItem(){
         for (position in dataTitles.indices){
             val itinerary = Itinerary(
                 dataTitles[position],
                 days[position],
                 dataBudgets[position],
                 categories[position],
-                    null
+                schedules
             )
             dataItineraries.add(itinerary)
         }
-
     }
 }

@@ -14,10 +14,22 @@
         android:id="@+id/itineraryFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.ItineraryFragment"
         android:label="fragment_itinerary"
-        tools:layout="@layout/fragment_itinerary" />
+        tools:layout="@layout/fragment_itinerary" >
+        <action
+            android:id="@+id/action_itineraryFragment_to_itineraryDetailFragment2"
+            app:destination="@id/itineraryDetailFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/itineraryDetailFragment2"
+        android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.ItineraryDetailFragment"
+        android:label="ItineraryDetailFragment" >
+        <argument
+            android:name="itinerary"
+            app:argType="com.stackoverthink.kuylahapp.ui.main.itinerary.Itinerary" />
+    </fragment>
 </navigation>

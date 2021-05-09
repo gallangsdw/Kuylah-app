@@ -61,6 +61,7 @@
             />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_day1"
             android:layout_width="343dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
@@ -82,6 +83,7 @@
             />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_day2"
             android:layout_width="343dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"

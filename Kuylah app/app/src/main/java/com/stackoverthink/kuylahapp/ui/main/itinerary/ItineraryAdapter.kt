@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.ItemItineraryBinding
@@ -27,7 +29,7 @@ class ItineraryAdapter(private val listItinerary: ArrayList<Itinerary>) : Recycl
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val itinerary =listItinerary[position]
         val builder = StringBuilder()
-        for (s in itinerary.category!!){
+        for (s in itinerary.category!!){7
             builder.append("$s, ")
         }
 
@@ -36,7 +38,9 @@ class ItineraryAdapter(private val listItinerary: ArrayList<Itinerary>) : Recycl
         holder.binding.tvCategories.text = builder.toString()
 
         holder.itemView.setOnClickListener {
-
+            val action = ItineraryFragmentDirections.actionItineraryFragmentToItineraryDetailFragment2(itinerary)
+            it.findNavController().navigate(action)
+//            Navigation.findNavController(it).navigate(R.id.action_itineraryFragment_to_itineraryDetailFragment2)
         }
     }
 
