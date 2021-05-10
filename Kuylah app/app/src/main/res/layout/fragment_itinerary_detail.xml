@@ -1,4 +1,5 @@
-<ScrollView
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,30 +11,6 @@
         android:orientation="vertical"
         android:background="@color/white"
         tools:context=".ui.main.home.HomeFragment">
-
-        <!--    <ImageView-->
-        <!--        android:id="@+id/iv_back"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_marginStart="32dp"-->
-        <!--        android:layout_marginLeft="32dp"-->
-        <!--        android:layout_marginTop="27dp"-->
-        <!--        android:src="@drawable/ic_back"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/tv_home_detail_itinerary"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:fontFamily="@font/inter_regular"-->
-        <!--        android:text="@string/detail_itinerary"-->
-        <!--        android:textColor="@color/black"-->
-        <!--        android:textSize="15sp"-->
-        <!--        android:layout_marginTop="21dp"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
         <TextView
             android:id="@+id/tv_itinerary_title"
@@ -92,4 +69,4 @@
             />
 
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
