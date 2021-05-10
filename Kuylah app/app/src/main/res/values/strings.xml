@@ -44,4 +44,5 @@
     <string name="phone_number">018181818</string>
     <string name="btn_logout">logout</string>
     <string name="profile_desc">foto profil</string>
+    <string name="home_illustration">home_illustration</string>
 </resources>

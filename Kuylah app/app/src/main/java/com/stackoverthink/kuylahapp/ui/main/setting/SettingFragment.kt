@@ -8,17 +8,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.FragmentSettingBinding
 import com.stackoverthink.kuylahapp.ui.auth.AuthenticationActivity
-import com.stackoverthink.kuylahapp.ui.main.MainActivity
 
 class SettingFragment : Fragment() {
     private lateinit var binding: FragmentSettingBinding
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +36,13 @@ class SettingFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         val currentUser = mAuth.currentUser
 
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+
+        requireActivity().run { googleSignInClient = GoogleSignIn.getClient(this,gso) }
+
         binding.tvName.text = currentUser?.displayName
         binding.tvEmail.text = currentUser?.email
         binding.tvPhoneNumber.text = currentUser?.phoneNumber
@@ -46,10 +54,12 @@ class SettingFragment : Fragment() {
 
         binding.button.setOnClickListener {
             mAuth.signOut()
-            
-            requireActivity().run {
-                startActivity(Intent(this,AuthenticationActivity::class.java))
-                finish()
+            googleSignInClient.signOut().addOnCompleteListener {
+
+                requireActivity().run {
+                    startActivity(Intent(this, AuthenticationActivity::class.java))
+                    finish()
+                }
             }
         }
     }
