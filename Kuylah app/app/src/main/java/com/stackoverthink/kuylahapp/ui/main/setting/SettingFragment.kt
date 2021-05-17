@@ -1,10 +1,12 @@
 package com.stackoverthink.kuylahapp.ui.main.setting
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -54,13 +56,24 @@ class SettingFragment : Fragment() {
             .into(binding.imgProfile)
 
         binding.button.setOnClickListener {
-            mAuth.signOut()
-            googleSignInClient.signOut().addOnCompleteListener {
-
-                requireActivity().run {
-                    startActivity(Intent(this, AuthenticationActivity::class.java))
-                    finish()
+            requireActivity().run {
+            val eBuilder = AlertDialog.Builder(this)
+                eBuilder.setTitle("Keluar")
+                eBuilder.setMessage("Yakin kamu ingin keluar?")
+                eBuilder.setPositiveButton("Iya") {
+                    _, _ ->
+                    mAuth.signOut()
+                    googleSignInClient.signOut().addOnCompleteListener {
+                        startActivity(Intent(this, AuthenticationActivity::class.java))
+                        finish()
+                    }
                 }
+                eBuilder.setNegativeButton("No") {
+                    _, _ ->
+                    Toast.makeText(this,"yuhu gajadi keluar",Toast.LENGTH_SHORT).show()
+                }
+                val createBuild = eBuilder.create()
+                createBuild.show()
             }
         }
     }

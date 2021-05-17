@@ -5,11 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.FragmentHomeBinding
-import com.stackoverthink.kuylahapp.databinding.FragmentItineraryBinding
-import com.stackoverthink.kuylahapp.ui.main.itinerary.FormDialogFragment
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding

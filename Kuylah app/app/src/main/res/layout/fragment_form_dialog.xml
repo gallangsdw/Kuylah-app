@@ -7,7 +7,7 @@
     android:background="@drawable/rounded_dialog_background"
     android:padding="24dp"
     android:orientation="vertical"
-    tools:context=".ui.main.itinerary.FormDialogFragment">
+    tools:context=".ui.main.home.FormDialogFragment">
 
     <TextView
         android:layout_width="wrap_content"

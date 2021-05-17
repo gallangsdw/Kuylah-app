@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/itineraryDetailFragment2"
-        android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.ItineraryDetailFragment"
+        android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.detail.ItineraryDetailFragment"
         android:label="ItineraryDetailFragment" >
         <argument
             android:name="itinerary"

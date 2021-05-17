@@ -38,10 +38,6 @@ class AuthenticationActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-
-        val text = "Harap menunggu gan"
-        val duration = Toast.LENGTH_LONG
-
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -53,7 +49,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             signIn()
-            Toast.makeText(applicationContext, text, duration).show()
+            Toast.makeText(this,"sebentar ya",Toast.LENGTH_LONG).show()
         }
 
 //        binding.btnSignUp.setOnClickListener {
@@ -99,6 +95,7 @@ class AuthenticationActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("AuthenticationActivity", "signInWithCredential:success")
+                        Toast.makeText(this,"Selamat datang di kuylah!",Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         val currentUser = mAuth.currentUser
