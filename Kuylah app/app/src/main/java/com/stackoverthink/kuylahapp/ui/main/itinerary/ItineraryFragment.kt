@@ -20,8 +20,9 @@ class ItineraryFragment : Fragment() {
     private lateinit var destinationName: Array<String>
     private lateinit var destinationTime: Array<String>
     private var destinations = arrayListOf<Destination>()
-    private lateinit var binding: FragmentItineraryBinding
     private var dataItineraries = arrayListOf<Itinerary>()
+
+    private lateinit var binding: FragmentItineraryBinding
 
 
     override fun onCreateView(
