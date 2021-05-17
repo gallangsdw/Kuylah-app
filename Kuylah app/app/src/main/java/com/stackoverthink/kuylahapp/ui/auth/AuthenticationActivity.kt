@@ -14,11 +14,13 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.ActivityAuthenticationBinding
 import com.stackoverthink.kuylahapp.ui.main.MainActivity
+import com.stackoverthink.kuylahapp.ui.signup.SignUpActivity
 
 class AuthenticationActivity : AppCompatActivity() {
 
     companion object {
         private const val RC_SIGN_IN = 120
+        private const val TAG = "SignIn"
     }
 
     private lateinit var binding: ActivityAuthenticationBinding
@@ -31,6 +33,7 @@ class AuthenticationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.hide()
+
 
         val text = "Harap menunggu gan"
         val duration = Toast.LENGTH_LONG
@@ -48,6 +51,12 @@ class AuthenticationActivity : AppCompatActivity() {
             signIn()
             Toast.makeText(applicationContext, text, duration).show()
         }
+
+//        binding.btnSignUp.setOnClickListener {
+//            val intent = Intent(this, SignUpActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
     }
 
     private fun signIn() {

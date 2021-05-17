@@ -33,13 +33,6 @@ class FormDialogFragment : DialogFragment() {
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT
         dialog!!.window!!.attributes = params as WindowManager.LayoutParams
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
 
 }
