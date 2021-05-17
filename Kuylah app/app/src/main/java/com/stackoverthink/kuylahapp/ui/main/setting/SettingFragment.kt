@@ -45,7 +45,8 @@ class SettingFragment : Fragment() {
 
         binding.tvName.text = currentUser?.displayName
         binding.tvEmail.text = currentUser?.email
-        binding.tvPhoneNumber.text = currentUser?.phoneNumber
+//        binding.tvPhoneNumber.text = currentUser?.phoneNumber
+        binding.tvPhoneNumber.text = currentUser?.uid
 
         Glide.with(this)
             .load(currentUser?.photoUrl)
