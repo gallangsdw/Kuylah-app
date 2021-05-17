@@ -1,4 +1,4 @@
-package com.stackoverthink.kuylahapp.ui.main.itinerary
+package com.stackoverthink.kuylahapp.ui.main.itinerary.detail
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.ItemScheduleBinding
+import com.stackoverthink.kuylahapp.ui.main.itinerary.Destination
 
 class ItineraryDetailAdapter(private val listDestination: ArrayList<Destination>) : RecyclerView.Adapter<ItineraryDetailAdapter.ListViewHolder>() {
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

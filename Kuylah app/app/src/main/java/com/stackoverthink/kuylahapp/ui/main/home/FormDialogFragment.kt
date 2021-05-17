@@ -1,4 +1,4 @@
-package com.stackoverthink.kuylahapp.ui.main.itinerary
+package com.stackoverthink.kuylahapp.ui.main.home
 
 import android.content.Context
 import android.graphics.Color

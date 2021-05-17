@@ -1,4 +1,4 @@
-package com.stackoverthink.kuylahapp.ui.main.itinerary
+package com.stackoverthink.kuylahapp.ui.main.itinerary.detail
 
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryDetailBinding
+import com.stackoverthink.kuylahapp.ui.main.itinerary.Destination
 
 class ItineraryDetailFragment : Fragment() {
 
