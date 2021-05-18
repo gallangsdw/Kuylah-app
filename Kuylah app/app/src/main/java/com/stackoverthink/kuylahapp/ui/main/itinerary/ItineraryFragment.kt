@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryBinding
+import com.stackoverthink.kuylahapp.ui.models.Destination
+import com.stackoverthink.kuylahapp.ui.models.Itinerary
 
 class ItineraryFragment : Fragment() {
     private lateinit var dataTitles: Array<String>
     private lateinit var days: Array<String>
     private lateinit var dataBudgets: Array<String>
     private lateinit var categories: Array<MutableList<String>>
-    private var schedules = arrayListOf<Day>()
+//    private var schedules = arrayListOf<Day>()
     private lateinit var destinationName: Array<String>
     private lateinit var destinationTime: Array<String>
     private var destinations = arrayListOf<Destination>()
@@ -106,26 +108,26 @@ class ItineraryFragment : Fragment() {
             destinations.add(destinationData)
         }
 
-        val Day = Day(
-            1,
-            destinations
-        )
-
-        schedules.add(Day)
+//        val Day = Day(
+//            1,
+//            destinations
+//        )
+//
+//        schedules.add(Day)
 
 
     }
 
     private fun addItem(){
-        for (position in dataTitles.indices){
-            val itinerary = Itinerary(
-                dataTitles[position],
-                days[position],
-                dataBudgets[position],
-                categories[position],
-                schedules
-            )
-            dataItineraries.add(itinerary)
-        }
+//        for (position in dataTitles.indices){
+//            val itinerary = Itinerary(
+//                dataTitles[position],
+//                days[position],
+//                dataBudgets[position],
+//                categories[position],
+//                schedules
+//            )
+//            dataItineraries.add(itinerary)
+//        }
     }
 }

@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.ItemItineraryBinding
+import com.stackoverthink.kuylahapp.ui.models.Itinerary
 
 
 class ItineraryAdapter(private val listItinerary: ArrayList<Itinerary>) : RecyclerView.Adapter<ItineraryAdapter.ListViewHolder>() {

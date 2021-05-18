@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryDetailBinding
-import com.stackoverthink.kuylahapp.ui.main.itinerary.Destination
+import com.stackoverthink.kuylahapp.ui.models.Destination
 
 class ItineraryDetailFragment : Fragment() {
 
@@ -31,8 +31,8 @@ class ItineraryDetailFragment : Fragment() {
 
         val itinerary = args.itinerary
         Log.d("Itinerary", itinerary.toString())
-        Log.d("Schedule 1", itinerary.schedule!![0].destination.toString())
-        showRecyclerList(itinerary.schedule!![0].destination)
+//        Log.d("Schedule 1", itinerary.schedule!![0].destination.toString())
+//        showRecyclerList(itinerary.schedule!![0].destination)
     }
 
     private fun showRecyclerList(destination: ArrayList<Destination>) {

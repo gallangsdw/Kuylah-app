@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.ItemScheduleBinding
-import com.stackoverthink.kuylahapp.ui.main.itinerary.Destination
+import com.stackoverthink.kuylahapp.ui.models.Destination
 
 class ItineraryDetailAdapter(private val listDestination: ArrayList<Destination>) : RecyclerView.Adapter<ItineraryDetailAdapter.ListViewHolder>() {
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,7 +26,7 @@ class ItineraryDetailAdapter(private val listDestination: ArrayList<Destination>
         val destination = listDestination[position]
 
         holder.binding.txtDestination.text = destination.name
-        holder.binding.txtHours.text = destination.time
+        holder.binding.txtHours.text = destination.price
 
     }
 
