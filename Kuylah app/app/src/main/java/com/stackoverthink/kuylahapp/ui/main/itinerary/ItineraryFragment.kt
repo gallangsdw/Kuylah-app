@@ -1,14 +1,15 @@
 package com.stackoverthink.kuylahapp.ui.main.itinerary
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryBinding
-import com.stackoverthink.kuylahapp.ui.models.Destination
-import com.stackoverthink.kuylahapp.ui.models.Itinerary
+import com.stackoverthink.kuylahapp.models.Destination
+import com.stackoverthink.kuylahapp.models.Itinerary
+import java.util.*
 
 class ItineraryFragment : Fragment() {
     private lateinit var dataTitles: Array<String>

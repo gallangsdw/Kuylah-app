@@ -12,8 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.stackoverthink.kuylahapp.R
-import com.stackoverthink.kuylahapp.ui.models.Destination
-import com.stackoverthink.kuylahapp.ui.models.Itinerary
+import com.stackoverthink.kuylahapp.models.Destination
+import com.stackoverthink.kuylahapp.models.Itinerary
 
 class MainActivity : AppCompatActivity() {
     private lateinit var dataTitles: Array<String>
@@ -70,9 +70,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addItineraryToDatabase(
-        dataItineraries: Itinerary?,
-        dataSchedules: ArrayList<MutableLiveData<Destination>>,
-        day: String
+            dataItineraries: Itinerary?,
+            dataSchedules: ArrayList<MutableLiveData<Destination>>,
+            day: String
     ) {
         val db = Firebase.firestore
         db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(dataItineraries!!.title.toString())

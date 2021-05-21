@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryDetailBinding
-import com.stackoverthink.kuylahapp.ui.models.Destination
+import com.stackoverthink.kuylahapp.models.Destination
 
 class ItineraryDetailFragment : Fragment() {
 
