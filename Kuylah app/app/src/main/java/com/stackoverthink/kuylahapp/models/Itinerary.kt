@@ -8,7 +8,7 @@ data class Itinerary(
         var title: String? = "",
         var day: String? = "",
         var budget: String? = "",
-        var category: MutableList<String>?
+        var category: MutableList<String>? = null
 ) : Parcelable
 
 

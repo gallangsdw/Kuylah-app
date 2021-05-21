@@ -1,5 +1,6 @@
 package com.stackoverthink.kuylahapp.ui.main.itinerary
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,13 +27,14 @@ class ItineraryAdapter(private val listItinerary: ArrayList<Itinerary>) : Recycl
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val itinerary =listItinerary[position]
+        Log.d("Ini apa", itinerary.category.toString())
         val builder = StringBuilder()
         for (s in itinerary.category!!){7
             builder.append("$s, ")
         }
 
         holder.binding.tvTitleItem.text = itinerary.title
-        holder.binding.tvDayPrice.text = "${itinerary.day} • ${itinerary.budget}"
+        holder.binding.tvDayPrice.text = "${itinerary.day} D • ${itinerary.budget}"
         holder.binding.tvCategories.text = builder.toString()
 
         holder.itemView.setOnClickListener {
