@@ -1,17 +1,18 @@
 package com.stackoverthink.kuylahapp.api
 
-import com.stackoverthink.kuylahapp.data.response.PostResponse
+import com.stackoverthink.kuylahapp.response.DummyRequest
+import com.stackoverthink.kuylahapp.response.DummyResponse
+import com.stackoverthink.kuylahapp.response.ItineraryRequest
+import com.stackoverthink.kuylahapp.response.ItineraryResponse
 import retrofit2.Call
-import retrofit2.http.Field
+import retrofit2.http.Body
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface ApiService {
-    @POST("api")
+
+    @POST("/api/users")
     fun postItinerary(
-            @Field("id") id: String,
-            @Field("title") title: String,
-            @Field("day") day: String,
-            @Field("budget") budget: String,
-            @Field("category") category: String
-    ): Call<PostResponse>
+            @Body req: DummyRequest
+    ): Call<DummyResponse>
 }

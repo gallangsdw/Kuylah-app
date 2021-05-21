@@ -1,4 +1,4 @@
-package com.stackoverthink.kuylahapp.ui.models
+package com.stackoverthink.kuylahapp.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

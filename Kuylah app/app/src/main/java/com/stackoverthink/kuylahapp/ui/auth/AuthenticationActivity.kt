@@ -17,7 +17,7 @@ import com.google.firebase.ktx.Firebase
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.ActivityAuthenticationBinding
 import com.stackoverthink.kuylahapp.ui.main.MainActivity
-import com.stackoverthink.kuylahapp.ui.models.User
+import com.stackoverthink.kuylahapp.models.User
 import com.stackoverthink.kuylahapp.ui.signup.SignUpActivity
 
 class AuthenticationActivity : AppCompatActivity() {

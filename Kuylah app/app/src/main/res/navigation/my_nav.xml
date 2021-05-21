@@ -30,6 +30,6 @@
         android:label="ItineraryDetailFragment" >
         <argument
             android:name="itinerary"
-            app:argType="com.stackoverthink.kuylahapp.ui.models.Itinerary" />
+            app:argType="com.stackoverthink.kuylahapp.models.Itinerary" />
     </fragment>
 </navigation>
