@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryBinding
-import com.stackoverthink.kuylahapp.models.Destination
 import com.stackoverthink.kuylahapp.models.Itinerary
 import java.util.*
 
@@ -21,7 +20,7 @@ class ItineraryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentItineraryBinding.inflate(layoutInflater)
         return binding.root
@@ -36,9 +35,10 @@ class ItineraryFragment : Fragment() {
     private fun showListItinerary() {
         itineraryViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ItineraryViewModel::class.java)
 
+        binding.progressBar.visibility = View.VISIBLE
         itineraryViewModel.setItineraries()
-        itineraryViewModel.getListItineraries().observe(viewLifecycleOwner,{
-            itinerary ->
+        itineraryViewModel.getListItineraries().observe(viewLifecycleOwner,{ itinerary ->
+            binding.progressBar.visibility = View.GONE
             if (itinerary!=null){
                 showRecycleList(itinerary)
             }

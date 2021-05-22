@@ -5,32 +5,32 @@ import com.google.gson.annotations.SerializedName
 data class ItineraryResponse(
 
 	@field:SerializedName("no")
-	val no: Int,
+	val no: Int? = null,
 
 	@field:SerializedName("score")
-	val score: Double,
+	val score: Double? = null,
 
 	@field:SerializedName("nama")
-	val nama: String,
+	val nama: String? = null,
 
 	@field:SerializedName("vote_average")
-	val voteAverage: Double,
+	val voteAverage: Double? = null,
 
 	@field:SerializedName("htm_weekday")
-	val htmWeekday: Double,
+	val htmWeekday: Double? = null,
 
 	@field:SerializedName("description")
-	val description: String,
+	val description: String? = null,
 
 	@field:SerializedName("htm_weekend")
-	val htmWeekend: String,
+	val htmWeekend: String? = null,
 
 	@field:SerializedName("location")
-	val location: String,
+	val location: String? = null,
 
 	@field:SerializedName("type")
-	val type: String,
+	val type: String? = null,
 
 	@field:SerializedName("vote_count")
-	val voteCount: Double
+	val voteCount: Double? = null
 )

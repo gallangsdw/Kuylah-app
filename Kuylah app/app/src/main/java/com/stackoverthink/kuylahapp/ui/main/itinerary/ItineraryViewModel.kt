@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.stackoverthink.kuylahapp.ui.models.Itinerary
+import com.stackoverthink.kuylahapp.models.Itinerary
 
 class ItineraryViewModel : ViewModel() {
 
