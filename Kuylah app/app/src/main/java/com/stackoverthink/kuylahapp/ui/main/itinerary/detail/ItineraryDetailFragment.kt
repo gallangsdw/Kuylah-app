@@ -33,9 +33,26 @@ class ItineraryDetailFragment : Fragment() {
 
         showRecyclerList1()
         showRecyclerList2()
+        showRecyclerListLoop()
     }
 
+    private fun showRecyclerListLoop() {
+        val itinerary = args.itinerary
+        for (i in 1..itinerary.day!!.toInt()){
+            itineraryDetailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ItineraryDetailViewModel::class.java)
 
+            itineraryDetailViewModel.setDestinations(itinerary.title.toString(), i.toString())
+            itineraryDetailViewModel.getListDestinations().observe(viewLifecycleOwner, {
+                    destination ->
+                if (destination!=null){
+                    Log.d("Destination ${itinerary.day}", destination.toString())
+//                    val scheduleAdapter = ItineraryDetailAdapter(destination)
+//                    binding.rvDay1.layoutManager = LinearLayoutManager(activity)
+//                    binding.rvDay1.adapter = scheduleAdapter
+                }
+            })
+        }
+    }
 
     private fun showRecyclerList1() {
         val itinerary = args.itinerary
@@ -45,9 +62,9 @@ class ItineraryDetailFragment : Fragment() {
         itineraryDetailViewModel.getListDestinations().observe(viewLifecycleOwner, {
                 destination ->
             if (destination!=null){
-                val scheduleAdapter = ItineraryDetailAdapter(destination)
-                binding.rvDay1.layoutManager = LinearLayoutManager(activity)
-                binding.rvDay1.adapter = scheduleAdapter
+//                val scheduleAdapter = ItineraryDetailAdapter(destination)
+//                binding.rvDay1.layoutManager = LinearLayoutManager(activity)
+//                binding.rvDay1.adapter = scheduleAdapter
             }
         })
     }
@@ -60,9 +77,9 @@ class ItineraryDetailFragment : Fragment() {
         itineraryDetailViewModel.getListDestinations().observe(viewLifecycleOwner, {
                 destination ->
             if (destination!=null){
-                val scheduleAdapter = ItineraryDetailAdapter(destination)
-                binding.rvDay2.layoutManager = LinearLayoutManager(activity)
-                binding.rvDay2.adapter = scheduleAdapter
+//                val scheduleAdapter = ItineraryDetailAdapter(destination)
+//                binding.rvDay2.layoutManager = LinearLayoutManager(activity)
+//                binding.rvDay2.adapter = scheduleAdapter
             }
         })
     }

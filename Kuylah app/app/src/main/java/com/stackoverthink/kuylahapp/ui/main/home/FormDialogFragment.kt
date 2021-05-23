@@ -6,7 +6,11 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.stackoverthink.kuylahapp.api.ApiConfig
 import com.stackoverthink.kuylahapp.databinding.FragmentFormDialogBinding
 import com.stackoverthink.kuylahapp.response.ItineraryRequest
@@ -70,12 +74,40 @@ class FormDialogFragment : DialogFragment() {
             override fun onResponse(call: Call<ItineraryResponse>, response: Response<ItineraryResponse>) {
                 val itinerary = response.body()
                 Log.d("success", itinerary.toString())
+//                addItineraryToDatabase(itinerary)
             }
 
             override fun onFailure(call: Call<ItineraryResponse>, t: Throwable) {
-                Log.e("failed", t.message.toString())
+                Log.e("Kenapa", t.message.toString())
             }
-
         })
     }
+
+//    private fun addItineraryToDatabase(itinerary: ItineraryResponse?) {
+//        val db = Firebase.firestore
+//        db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary!!.nama.toString())
+//            .set(itinerary)
+//            .addOnSuccessListener {
+//                Log.d("Itinerary Added Succeed", itinerary.toString())
+//            }
+//            .addOnFailureListener {
+//                Log.w("Itinerary Added Failed", "Error adding document", it)
+//            }
+//
+//        //Adding the itinerary details
+//        for (position in dataSchedules.indices){
+//            scheduleField["day"] = day
+//            db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${dataItineraries.title.toString()}/schedule/Day 2").set(scheduleField)
+//            db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${dataItineraries.title.toString()}/schedule/Day 2/destination/${dataSchedules[position].value!!.name}")
+//                .set(dataSchedules[position].value!!)
+//                .addOnSuccessListener {
+//                    Log.d("Itinerary Added Succeed", ": ${dataSchedules[position].value}")
+//                }
+//                .addOnFailureListener {
+//                    Log.w("Itinerary Added Failed", "Error adding document", it)
+//                }
+//        }
+//    }
+
+
 }

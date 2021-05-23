@@ -24,49 +24,56 @@
             android:textColor="@color/black"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tv_day"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginLeft="34dp"
-            android:layout_marginTop="19dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/day"
-            android:textColor="@color/dark_grey"
-            android:textSize="18sp"
-            />
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_day1"
-            android:layout_width="343dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginLeft="34dp"
-            tools:listitem="@layout/item_schedule"
-            />
-
-        <TextView
-            android:id="@+id/tv_day2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginLeft="34dp"
+            android:id="@+id/rv_detail_parent"
             android:layout_marginTop="19dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/day_2"
-            android:textColor="@color/dark_grey"
-            android:textSize="18sp"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_detail_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_width="match_parent"/>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_day2"
-            android:layout_width="343dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:layout_marginLeft="34dp"
-            tools:listitem="@layout/item_schedule"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_day"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="34dp"-->
+<!--            android:layout_marginLeft="34dp"-->
+<!--            android:layout_marginTop="19dp"-->
+<!--            />-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_day1"-->
+<!--            android:layout_width="343dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="34dp"-->
+<!--            android:layout_marginLeft="34dp"-->
+<!--            tools:listitem="@layout/item_schedule"-->
+<!--            />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_day2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="34dp"-->
+<!--            android:layout_marginLeft="34dp"-->
+<!--            android:layout_marginTop="19dp"-->
+<!--            android:fontFamily="@font/inter_regular"-->
+<!--            android:text="@string/day_2"-->
+<!--            android:textColor="@color/dark_grey"-->
+<!--            android:textSize="18sp"-->
+<!--            />-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_day2"-->
+<!--            android:layout_width="343dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="34dp"-->
+<!--            android:layout_marginLeft="34dp"-->
+<!--            tools:listitem="@layout/item_schedule"-->
+<!--            />-->
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryBinding
 import com.stackoverthink.kuylahapp.models.Itinerary
