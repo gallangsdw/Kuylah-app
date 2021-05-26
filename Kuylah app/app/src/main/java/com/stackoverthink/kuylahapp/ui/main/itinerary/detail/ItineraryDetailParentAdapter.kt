@@ -35,8 +35,6 @@ class ItineraryDetailParentAdapter(private val listSchedule: ArrayList<Schedule>
         holder.binding.rvDetailChild.apply {
             layoutManager = LinearLayoutManager(holder.binding.rvDetailChild.context)
             adapter = ItineraryDetailChildAdapter(schedule.schedules!!)
-//            layoutManager = LinearLayoutManager(holder.binding.rvDetailChild.context, LinearLayout.VERTICAL, false)
-
         }
     }
 

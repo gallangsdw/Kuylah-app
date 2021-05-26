@@ -26,7 +26,7 @@ class ItineraryDetailChildAdapter (private val listDestination: ArrayList<Destin
         val destination = listDestination[position]
 
         holder.binding.txtDestination.text = destination.name
-        holder.binding.txtHours.text = destination.price
+        holder.binding.txtHours.text = "IDR ${destination.price}"
     }
 
     override fun getItemCount(): Int {

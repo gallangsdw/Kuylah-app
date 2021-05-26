@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    @POST("api/")
+    @POST("api")
     fun postItinerary(
             @Body req: ItineraryRequest
     ): Call<ItineraryResponse>

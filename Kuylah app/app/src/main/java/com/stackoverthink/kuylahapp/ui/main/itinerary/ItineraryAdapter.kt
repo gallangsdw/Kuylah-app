@@ -34,7 +34,7 @@ class ItineraryAdapter(private val listItinerary: ArrayList<Itinerary>) : Recycl
         }
 
         holder.binding.tvTitleItem.text = itinerary.title
-        holder.binding.tvDayPrice.text = "${itinerary.day} D • ${itinerary.budget}"
+        holder.binding.tvDayPrice.text = "${itinerary.day} D • IDR ${itinerary.budget}"
         holder.binding.tvCategories.text = builder.toString()
 
         holder.itemView.setOnClickListener {

@@ -64,17 +64,18 @@ class FormDialogFragment : DialogFragment() {
     }
 
     fun postItinerary() {
-        var itineraryReq = ItineraryRequest()
+        val itineraryReq = ItineraryRequest()
         itineraryReq.title = binding.etTitle.text.toString()
         itineraryReq.day = binding.etDay.text.toString()
         itineraryReq.budget = binding.etBudget.text.toString()
-
+        Log.d("Cek DOoang", "cek title ${itineraryReq.title}")
         val client = ApiConfig.getApiService().postItinerary(itineraryReq)
         client.enqueue(object : Callback<ItineraryResponse>{
             override fun onResponse(call: Call<ItineraryResponse>, response: Response<ItineraryResponse>) {
                 val itinerary = response.body()
                 Log.d("success", itinerary.toString())
 //                addItineraryToDatabase(itinerary)
+
             }
 
             override fun onFailure(call: Call<ItineraryResponse>, t: Throwable) {
@@ -83,7 +84,7 @@ class FormDialogFragment : DialogFragment() {
         })
     }
 
-//    private fun addItineraryToDatabase(itinerary: ItineraryResponse?) {
+//    private fun addItineraryToDatabase(itinerary: ItineraryResponse?) : Boolean {
 //        val db = Firebase.firestore
 //        db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary!!.nama.toString())
 //            .set(itinerary)
@@ -102,6 +103,8 @@ class FormDialogFragment : DialogFragment() {
 //                .set(dataSchedules[position].value!!)
 //                .addOnSuccessListener {
 //                    Log.d("Itinerary Added Succeed", ": ${dataSchedules[position].value}")
+//                    //intent ke itinerary fragment
+//                    return true
 //                }
 //                .addOnFailureListener {
 //                    Log.w("Itinerary Added Failed", "Error adding document", it)

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ItineraryResponse(
 
-	@field:SerializedName("no")
+	@field:SerializedName("index")
 	val no: Int? = null,
 
 	@field:SerializedName("score")
