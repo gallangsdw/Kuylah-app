@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         var title: TextView = findViewById(R.id.tv_title)
         title.text = getString(R.string.home)
 
-        add()
+//        add()
 
         //val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.itineraryFragment, R.id.settingFragment))
         //setupActionBarWithNavController(navController, appBarConfiguration)

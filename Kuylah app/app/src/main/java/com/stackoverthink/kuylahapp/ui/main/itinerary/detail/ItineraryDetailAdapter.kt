@@ -10,16 +10,14 @@ import com.stackoverthink.kuylahapp.databinding.ItemScheduleBinding
 import com.stackoverthink.kuylahapp.models.Destination
 
 class ItineraryDetailAdapter(private val listDestination: ArrayList<Destination>) : RecyclerView.Adapter<ItineraryDetailAdapter.ListViewHolder>() {
-    private val viewPool = RecyclerView.RecycledViewPool()
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        val binding = ItemScheduleBinding.bind(itemView)
-        val binding = ItemDetailParentBinding.bind(itemView)
+        val binding = ItemScheduleBinding.bind(itemView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_detail_parent,
+            R.layout.item_schedule,
             parent,
             false
         )
@@ -29,11 +27,8 @@ class ItineraryDetailAdapter(private val listDestination: ArrayList<Destination>
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val destination = listDestination[position]
 
-        holder.binding
-
-
-//        holder.binding.txtDestination.text = destination.name
-//        holder.binding.txtHours.text = destination.price
+        holder.binding.txtDestination.text = destination.name
+        holder.binding.txtHours.text = destination.price
 
     }
 

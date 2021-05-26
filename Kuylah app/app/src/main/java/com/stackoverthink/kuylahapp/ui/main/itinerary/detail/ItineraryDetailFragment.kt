@@ -11,11 +11,13 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryDetailBinding
 import com.stackoverthink.kuylahapp.models.Destination
+import com.stackoverthink.kuylahapp.models.Itinerary
 
 class ItineraryDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentItineraryDetailBinding
     private lateinit var itineraryDetailViewModel: ItineraryDetailViewModel
+
     private val args by navArgs<ItineraryDetailFragmentArgs>()
 
 
@@ -30,58 +32,28 @@ class ItineraryDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val itinerary = args.itinerary
 
-        showRecyclerList1()
-        showRecyclerList2()
-        showRecyclerListLoop()
+        binding.tvItineraryTitle.text = itinerary.title
+        showRecyclerList(itinerary)
     }
 
-    private fun showRecyclerListLoop() {
-        val itinerary = args.itinerary
-        for (i in 1..itinerary.day!!.toInt()){
-            itineraryDetailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ItineraryDetailViewModel::class.java)
-
-            itineraryDetailViewModel.setDestinations(itinerary.title.toString(), i.toString())
-            itineraryDetailViewModel.getListDestinations().observe(viewLifecycleOwner, {
-                    destination ->
-                if (destination!=null){
-                    Log.d("Destination ${itinerary.day}", destination.toString())
-//                    val scheduleAdapter = ItineraryDetailAdapter(destination)
-//                    binding.rvDay1.layoutManager = LinearLayoutManager(activity)
-//                    binding.rvDay1.adapter = scheduleAdapter
-                }
-            })
-        }
-    }
-
-    private fun showRecyclerList1() {
-        val itinerary = args.itinerary
+    private fun showRecyclerList(itinerary: Itinerary) {
         itineraryDetailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ItineraryDetailViewModel::class.java)
 
-        itineraryDetailViewModel.setDestinations(itinerary.title.toString(), "1")
+        binding.progressBar.visibility = View.VISIBLE
+        itineraryDetailViewModel.setData(itinerary.title.toString(), itinerary.day.toString())
         itineraryDetailViewModel.getListDestinations().observe(viewLifecycleOwner, {
-                destination ->
-            if (destination!=null){
-//                val scheduleAdapter = ItineraryDetailAdapter(destination)
-//                binding.rvDay1.layoutManager = LinearLayoutManager(activity)
-//                binding.rvDay1.adapter = scheduleAdapter
+                schedule ->
+            binding.progressBar.visibility = View.GONE
+            if (schedule!=null){
+                Log.d("Schedule ${itinerary.day} days", schedule.toString())
+                val scheduleAdapter = ItineraryDetailParentAdapter(schedule)
+                binding.rvDetailParent.layoutManager = LinearLayoutManager(activity)
+                binding.rvDetailParent.adapter = scheduleAdapter
             }
         })
     }
 
-    private fun showRecyclerList2() {
-        val itinerary = args.itinerary
-        itineraryDetailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ItineraryDetailViewModel::class.java)
-
-        itineraryDetailViewModel.setDestinations(itinerary.title.toString(), "2")
-        itineraryDetailViewModel.getListDestinations().observe(viewLifecycleOwner, {
-                destination ->
-            if (destination!=null){
-//                val scheduleAdapter = ItineraryDetailAdapter(destination)
-//                binding.rvDay2.layoutManager = LinearLayoutManager(activity)
-//                binding.rvDay2.adapter = scheduleAdapter
-            }
-        })
-    }
 
 }
