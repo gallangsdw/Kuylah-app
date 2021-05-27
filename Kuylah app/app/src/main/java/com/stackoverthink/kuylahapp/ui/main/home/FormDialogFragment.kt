@@ -6,15 +6,12 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.stackoverthink.kuylahapp.api.ApiConfig
 import com.stackoverthink.kuylahapp.databinding.FragmentFormDialogBinding
 import com.stackoverthink.kuylahapp.response.ItineraryRequest
 import com.stackoverthink.kuylahapp.response.ItineraryResponse
+import com.stackoverthink.kuylahapp.response.ListItineraryResponse
 import com.stackoverthink.kuylahapp.ui.main.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -68,12 +65,15 @@ class FormDialogFragment : DialogFragment() {
         itineraryReq.title = binding.etTitle.text.toString()
         itineraryReq.day = binding.etDay.text.toString()
         itineraryReq.budget = binding.etBudget.text.toString()
+        itineraryReq.category = binding.etCategory.text.toString()
+
         Log.d("Cek DOoang", "cek title ${itineraryReq.title}")
+
         val client = ApiConfig.getApiService().postItinerary(itineraryReq)
         client.enqueue(object : Callback<ItineraryResponse>{
             override fun onResponse(call: Call<ItineraryResponse>, response: Response<ItineraryResponse>) {
                 val itinerary = response.body()
-                Log.d("success", itinerary.toString())
+                Log.d("SUKSES COKK", itinerary.toString())
 //                addItineraryToDatabase(itinerary)
 
             }

@@ -12,6 +12,6 @@ data class ItineraryRequest(
         @field:SerializedName("budget")
         var budget: String? = null,
 
-        //@field:SerializedName("category")
-        //val category: String,
+        @field:SerializedName("category")
+        var category: String? = null
 )
