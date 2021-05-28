@@ -89,6 +89,7 @@ class MainActivity : AppCompatActivity() {
             budget = "3000000",
             category = arrayListOf("Beach", "Natural")
         )
+
         dataSchedule1.value = Destination(name = "Nasi Goreng", price = "30000")
         dataSchedules.add(dataSchedule1)
         dataSchedule2.value = Destination(name = "Parangtritis", price = "20000")

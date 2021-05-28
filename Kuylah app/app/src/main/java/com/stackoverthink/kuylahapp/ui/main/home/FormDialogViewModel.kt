@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.stackoverthink.kuylahapp.api.ApiConfig
 import com.stackoverthink.kuylahapp.response.ItineraryRequest
 import com.stackoverthink.kuylahapp.response.ItineraryResponse
-import com.stackoverthink.kuylahapp.response.ListItineraryResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

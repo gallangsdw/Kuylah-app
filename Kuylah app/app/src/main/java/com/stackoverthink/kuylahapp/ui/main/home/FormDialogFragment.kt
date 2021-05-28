@@ -7,6 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.MutableLiveData
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.stackoverthink.kuylahapp.api.ApiConfig
 import com.stackoverthink.kuylahapp.databinding.FragmentFormDialogBinding
 import com.stackoverthink.kuylahapp.response.ItineraryRequest
@@ -21,6 +25,9 @@ import retrofit2.Response
 class FormDialogFragment : DialogFragment() {
 
     private lateinit var binding: FragmentFormDialogBinding
+    private var dataItinerary = MutableLiveData<ItineraryResponse>()
+    private var dataSchedule = MutableLiveData<ListItineraryResponse>()
+    private var dataSchedules = ArrayList<MutableLiveData<ListItineraryResponse>>()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -74,7 +81,9 @@ class FormDialogFragment : DialogFragment() {
             override fun onResponse(call: Call<ItineraryResponse>, response: Response<ItineraryResponse>) {
                 val itinerary = response.body()
                 Log.d("SUKSES COKK", itinerary.toString())
-//                addItineraryToDatabase(itinerary)
+                if (itinerary != null) {
+                    addItineraryToDatabase(itinerary)
+                }
 
             }
 
@@ -84,33 +93,50 @@ class FormDialogFragment : DialogFragment() {
         })
     }
 
-//    private fun addItineraryToDatabase(itinerary: ItineraryResponse?) : Boolean {
-//        val db = Firebase.firestore
-//        db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary!!.nama.toString())
-//            .set(itinerary)
-//            .addOnSuccessListener {
-//                Log.d("Itinerary Added Succeed", itinerary.toString())
-//            }
-//            .addOnFailureListener {
-//                Log.w("Itinerary Added Failed", "Error adding document", it)
-//            }
-//
-//        //Adding the itinerary details
-//        for (position in dataSchedules.indices){
-//            scheduleField["day"] = day
-//            db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${dataItineraries.title.toString()}/schedule/Day 2").set(scheduleField)
-//            db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${dataItineraries.title.toString()}/schedule/Day 2/destination/${dataSchedules[position].value!!.name}")
-//                .set(dataSchedules[position].value!!)
-//                .addOnSuccessListener {
-//                    Log.d("Itinerary Added Succeed", ": ${dataSchedules[position].value}")
-//                    //intent ke itinerary fragment
-//                    return true
-//                }
-//                .addOnFailureListener {
-//                    Log.w("Itinerary Added Failed", "Error adding document", it)
-//                }
-//        }
-//    }
+    private fun addItineraryToDatabase(itinerary: ItineraryResponse){
+        val db = Firebase.firestore
+        dataItinerary.value = ItineraryResponse(
+            htmTotal = itinerary.htmTotal,
+            title = itinerary.title,
+            day = itinerary.day,
+            budget = itinerary.budget
+        )
+//        db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${itinerary.title.toString()}")
+//            .set(dataItinerary)
+          db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary.title.toString())
+              .set(dataItinerary.value!!)
 
+        //Adding the details
+        val schedules = itinerary.destination
+        Log.d("schedules ni", schedules.toString())
+        for (i in 1..itinerary.day!!.toInt()){
+            val destination = schedules!![i-1].schedule
 
+            Log.d("destination ni", destination.toString())
+            for (j in 1..destination.size){
+                dataSchedule.value = ListItineraryResponse(
+                no = destination[j-1].no,
+                score = destination[j-1].score,
+                nama = destination[j-1].nama,
+                voteAverage = destination[j-1].voteAverage,
+                htmWeekday = destination[j-1].htmWeekday,
+                description = destination[j-1].description,
+                htmWeekend = destination[j-1].htmWeekend,
+                location = destination[j-1].location,
+                type = destination[j-1].type,
+                voteCount = destination[j-1].voteCount
+            )
+
+                db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${itinerary.title.toString()}/schedule/$i/destination/${dataSchedule.value!!.nama}")
+                    .set(dataSchedule.value!!)
+                    .addOnSuccessListener {
+
+                    }
+
+                val p = destination[j-1]
+                Log.d("each destination ni", p.toString())
+                Log.d("each destination name", p.nama.toString())
+            }
+        }
+    }
 }

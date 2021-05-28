@@ -59,8 +59,9 @@ class ItineraryDetailViewModel : ViewModel() {
                     for (document in result){
                         val destination = Destination()
                         Log.d("Response", "${document.id} => ${document.data}")
-                        destination.name = document.getString("name")
-                        destination.price = document.getString("price")
+                        destination.name = document.getString("nama")
+                        val price = document.get("htmWeekday")
+                        destination.price = price.toString()
                         listDestination.add(destination)
                     }
                     Log.d("Listttt Destination", "$listDestination")
