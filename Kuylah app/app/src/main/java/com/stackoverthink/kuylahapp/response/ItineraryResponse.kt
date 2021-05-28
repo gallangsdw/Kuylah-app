@@ -17,5 +17,5 @@ data class ItineraryResponse(
 	val budget: String? = null,
 
 	@field:SerializedName("destination")
-	val destination: List<ListItineraryResponse>
+	val destination: List<ScheduleResponse>
 )
