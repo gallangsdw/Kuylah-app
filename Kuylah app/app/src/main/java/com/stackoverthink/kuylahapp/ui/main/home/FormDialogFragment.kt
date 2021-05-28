@@ -101,8 +101,6 @@ class FormDialogFragment : DialogFragment() {
             day = itinerary.day,
             budget = itinerary.budget
         )
-//        db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${itinerary.title.toString()}")
-//            .set(dataItinerary)
           db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary.title.toString())
               .set(dataItinerary.value!!)
 
