@@ -8,11 +8,16 @@ import android.util.Log
 import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.type.DateTime
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.stackoverthink.kuylahapp.api.ApiConfig
 import com.stackoverthink.kuylahapp.databinding.FragmentFormDialogBinding
+import com.stackoverthink.kuylahapp.models.Itinerary
 import com.stackoverthink.kuylahapp.response.ItineraryRequest
 import com.stackoverthink.kuylahapp.response.ItineraryResponse
 import com.stackoverthink.kuylahapp.response.ListItineraryResponse
@@ -27,7 +32,8 @@ class FormDialogFragment : DialogFragment() {
     private lateinit var binding: FragmentFormDialogBinding
     private var dataItinerary = MutableLiveData<ItineraryResponse>()
     private var dataSchedule = MutableLiveData<ListItineraryResponse>()
-    private var dataSchedules = ArrayList<MutableLiveData<ListItineraryResponse>>()
+    val gson = Gson()
+
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -58,13 +64,10 @@ class FormDialogFragment : DialogFragment() {
 
     @Suppress("DEPRECATION")
     fun initAction() {
-        requireActivity().run {
-            binding.btnGenerateItinerary.setOnClickListener {
-                startActivity(Intent(this, MainActivity::class.java))
+        binding.btnGenerateItinerary.setOnClickListener {
                 postItinerary()
-                finish()
+                dialog?.dismiss()
             }
-        }
     }
 
     fun postItinerary() {
@@ -95,14 +98,10 @@ class FormDialogFragment : DialogFragment() {
 
     private fun addItineraryToDatabase(itinerary: ItineraryResponse){
         val db = Firebase.firestore
-        dataItinerary.value = ItineraryResponse(
-            htmTotal = itinerary.htmTotal,
-            title = itinerary.title,
-            day = itinerary.day,
-            budget = itinerary.budget
-        )
+        val itineraryAsMap: Map<String, Any> = itinerary.serializeToMap()
+
           db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary.title.toString())
-              .set(dataItinerary.value!!)
+              .set(itineraryAsMap)
 
         //Adding the details
         val schedules = itinerary.destination
@@ -112,23 +111,31 @@ class FormDialogFragment : DialogFragment() {
 
             Log.d("destination ni", destination.toString())
             for (j in 1..destination.size){
-                dataSchedule.value = ListItineraryResponse(
-                no = destination[j-1].no,
-                score = destination[j-1].score,
-                nama = destination[j-1].nama,
-                voteAverage = destination[j-1].voteAverage,
-                htmWeekday = destination[j-1].htmWeekday,
-                description = destination[j-1].description,
-                htmWeekend = destination[j-1].htmWeekend,
-                location = destination[j-1].location,
-                type = destination[j-1].type,
-                voteCount = destination[j-1].voteCount
-            )
+                val listItineraryResponse =  ListItineraryResponse()
+                listItineraryResponse.apply {
+                    no = destination[j-1].no
+                    nama = destination[j-1].nama
+                    voteAverage = destination[j-1].voteAverage
+                    htmWeekday = destination[j-1].htmWeekday
+                    description = destination[j-1].description
+                    htmWeekend = destination[j-1].htmWeekend
+                    location = destination[j-1].location
+                    type = destination[j-1].type
+                    voteCount = destination[j-1].voteCount
+                }
+                val listItineraryResponseAsMap: Map<String, Any> = listItineraryResponse.serializeToMap()
 
-                db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${itinerary.title.toString()}/schedule/$i/destination/${dataSchedule.value!!.nama}")
-                    .set(dataSchedule.value!!)
+                db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${itinerary.title.toString()}/schedule/$i/destination/${listItineraryResponse.nama}")
+                    .set(listItineraryResponseAsMap)
                     .addOnSuccessListener {
-
+                        val newItinerary = Itinerary()
+                        newItinerary.apply {
+                            title = itinerary.title
+                            day = itinerary.day
+                            budget = itinerary.budget
+                        }
+//                        val action = FormDialogFragmentDirections.actionFormDialogFragmentToItineraryDetailFragment23(newItinerary)
+//                        findNavController().navigate(action)
                     }
 
                 val p = destination[j-1]
@@ -136,5 +143,14 @@ class FormDialogFragment : DialogFragment() {
                 Log.d("each destination name", p.nama.toString())
             }
         }
+    }
+
+    private fun <T> T.serializeToMap(): Map<String, Any> {
+        return convert()
+    }
+
+    inline fun <I, reified O> I.convert(): O {
+        val json = gson.toJson(this)
+        return gson.fromJson(json, object : TypeToken<O>() {}.type)
     }
 }

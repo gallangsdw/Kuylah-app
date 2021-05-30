@@ -32,4 +32,13 @@
             android:name="itinerary"
             app:argType="com.stackoverthink.kuylahapp.models.Itinerary" />
     </fragment>
+    <fragment
+        android:id="@+id/formDialogFragment"
+        android:name="com.stackoverthink.kuylahapp.ui.main.home.FormDialogFragment"
+        android:label="fragment_form_dialog"
+        tools:layout="@layout/fragment_form_dialog" >
+        <action
+            android:id="@+id/action_formDialogFragment_to_itineraryDetailFragment23"
+            app:destination="@id/itineraryDetailFragment2" />
+    </fragment>
 </navigation>
