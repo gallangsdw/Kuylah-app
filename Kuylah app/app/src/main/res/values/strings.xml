@@ -8,12 +8,12 @@
     <string name="home">Home</string>
     <string name="my_itinerary">My Itinerary</string>
     <string name="setting">Setting</string>
-    <string name="welcome_to_jogja">Welcome to Jogja!</string>
-    <string name="jogja_is">Jogja terbuat dari klitih, UMR rendah, kesenjangan sosial. Yuk explore!</string>
+    <string name="welcome_to_jogja">Sugeng Rawuh!</string>
+    <string name="jogja_is">Mulai petualanganmu sekarang, karena selalu ada sesuatu di Yogyakarta!</string>
     <string name="create_itinerary">Create Itinerary</string>
 
-    <string name="ready_to_explore">Ready to explore?</string>
-    <string name="start_the_journey">This is special itinerary for you, Let’s start the journey!</string>
+    <string name="ready_to_explore">Udah Siap?</string>
+    <string name="start_the_journey">jadwal wisata kamu udah siap nih, yuk mulai jalan!</string>
     <string name="your_itinerary">Your itinerary(s)</string>
     <string name="detail_itinerary">Detail Itinerary</string>
     <string name="itinerary_title">First trip to jogja uhuy</string>

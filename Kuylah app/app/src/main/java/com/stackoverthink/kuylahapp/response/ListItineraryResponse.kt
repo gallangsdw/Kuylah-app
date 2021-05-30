@@ -7,9 +7,6 @@ data class ListItineraryResponse(
 	@field:SerializedName("index")
 	val no: Int? = null,
 
-	@field:SerializedName("score")
-	val score: Double? = null,
-
 	@field:SerializedName("nama")
 	val nama: String? = null,
 
