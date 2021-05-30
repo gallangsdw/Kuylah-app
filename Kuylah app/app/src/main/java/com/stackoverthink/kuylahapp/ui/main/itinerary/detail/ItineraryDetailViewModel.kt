@@ -76,4 +76,19 @@ class ItineraryDetailViewModel : ViewModel() {
     fun getListDestinations() : LiveData<ArrayList<Schedule>>{
         return listSchedules
     }
+
+    fun deleteItinerary(title: String): Boolean{
+        val db = Firebase.firestore
+        var succeed = true
+        db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/$title")
+            .delete()
+            .addOnSuccessListener {
+                succeed = true
+            }
+            .addOnFailureListener {
+                succeed = false
+            }
+
+        return succeed
+    }
 }

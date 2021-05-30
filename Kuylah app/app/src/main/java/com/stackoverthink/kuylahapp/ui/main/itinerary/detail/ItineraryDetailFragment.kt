@@ -6,11 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stackoverthink.kuylahapp.databinding.FragmentItineraryDetailBinding
-import com.stackoverthink.kuylahapp.models.Destination
 import com.stackoverthink.kuylahapp.models.Itinerary
 
 class ItineraryDetailFragment : Fragment() {
@@ -36,6 +37,23 @@ class ItineraryDetailFragment : Fragment() {
 
         binding.tvItineraryTitle.text = itinerary.title
         showRecyclerList(itinerary)
+
+        binding.btnDelete.setOnClickListener {
+            if(deleteItinerary(itinerary.title)){
+                val action = ItineraryDetailFragmentDirections.actionItineraryDetailFragment2ToItineraryFragment()
+                findNavController().navigate(action)
+                Toast.makeText(activity, "Itinerary berhasil dihapus", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(activity, "Itinerary gagal dihapus", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun deleteItinerary(title: String?): Boolean {
+        itineraryDetailViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ItineraryDetailViewModel::class.java)
+
+        return itineraryDetailViewModel.deleteItinerary(title!!)
     }
 
     private fun showRecyclerList(itinerary: Itinerary) {
