@@ -5,29 +5,29 @@ import com.google.gson.annotations.SerializedName
 data class ListItineraryResponse(
 
 	@field:SerializedName("index")
-	var no: Int? = null,
+	val no: Int? = null,
 
 	@field:SerializedName("nama")
-	var nama: String? = null,
+	val nama: String? = null,
 
 	@field:SerializedName("vote_average")
-	var voteAverage: Double? = null,
+	val voteAverage: Double? = null,
 
 	@field:SerializedName("htm_weekday")
-	var htmWeekday: Double? = null,
+	val htmWeekday: Double? = null,
 
 	@field:SerializedName("description")
-	var description: String? = null,
+	val description: String? = null,
 
 	@field:SerializedName("htm_weekend")
-	var htmWeekend: String? = null,
+	val htmWeekend: String? = null,
 
 	@field:SerializedName("location")
-	var location: String? = null,
+	val location: String? = null,
 
 	@field:SerializedName("type")
-	var type: String? = null,
+	val type: String? = null,
 
 	@field:SerializedName("vote_count")
-	var voteCount: Double? = null
+	val voteCount: Double? = null
 )
