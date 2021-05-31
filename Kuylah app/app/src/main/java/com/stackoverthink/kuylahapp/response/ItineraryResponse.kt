@@ -1,5 +1,6 @@
 package com.stackoverthink.kuylahapp.response
 
+import com.google.firebase.firestore.ServerTimestamp
 import com.google.gson.annotations.SerializedName
 
 data class ItineraryResponse(
@@ -17,5 +18,7 @@ data class ItineraryResponse(
 	val budget: String? = null,
 
 	@field:SerializedName("destination")
-	val destination: List<ScheduleResponse>? = null
+	val destination: List<ScheduleResponse>? = null,
+
+	val created: Any
 )

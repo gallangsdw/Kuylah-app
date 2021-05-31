@@ -18,11 +18,12 @@ class ItineraryViewModel : ViewModel() {
 
     val listItineraries = MutableLiveData<ArrayList<Itinerary>>()
 
+
     fun setItineraries(){
         val listItnerary = ArrayList<Itinerary>()
         val db = Firebase.firestore
         db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries")
-//            .orderBy("timeStamp", Query.Direction.ASCENDING)
+            .orderBy("created", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {

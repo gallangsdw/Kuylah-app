@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.type.DateTime
@@ -102,10 +103,12 @@ class FormDialogFragment : DialogFragment() {
             htmTotal = itinerary.htmTotal,
             title = itinerary.title,
             day = itinerary.day,
-            budget = itinerary.budget
+            budget = itinerary.budget,
+            created = FieldValue.serverTimestamp()
         )
-          db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary.title.toString())
-              .set(dataItinerary.value!!)
+        val docRef = db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary.title.toString())
+        docRef.set(dataItinerary.value!!)
+//        var updateTimeStamp = docRef.update()
 
         //Adding the details
         val schedules = itinerary.destination
