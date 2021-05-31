@@ -137,7 +137,7 @@ class FormDialogFragment : DialogFragment() {
                             day = itinerary.day
                             budget = itinerary.budget
                         }
-                        showSnackbar(newItinerary)
+                        //showSnackbar(newItinerary)
                     }
 
                 val p = destination[j-1]
@@ -155,6 +155,5 @@ class FormDialogFragment : DialogFragment() {
                 it.findNavController().navigate(action)
             }
             .show()
-
     }
 }
