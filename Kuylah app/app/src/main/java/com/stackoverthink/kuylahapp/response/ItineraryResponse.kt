@@ -11,6 +11,9 @@ data class ItineraryResponse(
 	@field:SerializedName("title")
 	val title: String? = null,
 
+	@field:SerializedName("category")
+	val category: String? = null,
+
 	@field:SerializedName("day")
 	val day: String? = null,
 
