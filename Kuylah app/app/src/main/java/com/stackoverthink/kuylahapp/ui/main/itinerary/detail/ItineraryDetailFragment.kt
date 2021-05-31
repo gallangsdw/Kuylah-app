@@ -42,14 +42,29 @@ class ItineraryDetailFragment : Fragment() {
         showRecyclerList(itinerary)
 
         binding.btnDelete.setOnClickListener {
-            if(deleteItinerary(itinerary.title)){
-                val action = ItineraryDetailFragmentDirections.actionItineraryDetailFragment2ToItineraryFragment()
-                findNavController().navigate(action)
-                Toast.makeText(activity, "Itinerary berhasil dihapus", Toast.LENGTH_SHORT).show()
+            val eBuilder = AlertDialog.Builder(it.context)
+            eBuilder.setTitle("Hapus Itinerary")
+            eBuilder.setMessage("Yakin ingin menghapus itinerary?")
+            eBuilder.setPositiveButton("Iya") {
+                    _, _ ->
+                if(deleteItinerary(itinerary.title)){
+                    val action = ItineraryDetailFragmentDirections.actionItineraryDetailFragment2ToItineraryFragment()
+                    findNavController().navigate(action)
+                    Toast.makeText(activity, "Itinerary berhasil dihapus", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(activity, "Itinerary gagal dihapus", Toast.LENGTH_SHORT).show()
+                }
             }
-            else{
-                Toast.makeText(activity, "Itinerary gagal dihapus", Toast.LENGTH_SHORT).show()
+            eBuilder.setNegativeButton("Tidak") {
+                    _, _ ->
+                Toast.makeText(activity, "okoklh", Toast.LENGTH_SHORT).show()
             }
+            val createBuild = eBuilder.create()
+            createBuild.show()
+
+
+
         }
     }
 
