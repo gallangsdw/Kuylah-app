@@ -69,49 +69,49 @@
         android:layout_marginTop="5dp">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip4"
+            android:id="@+id/chip1"
             android:text="@string/beach"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip5"
+            android:id="@+id/chip2"
             android:text="@string/nature"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip6"
+            android:id="@+id/chip3"
             android:text="@string/cultural_and_historical"
             android:layout_width="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip7"
+            android:id="@+id/chip4"
             android:text="@string/museum"
             android:layout_width="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip8"
+            android:id="@+id/chip5"
             android:text="@string/artificial"
             android:layout_width="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip9"
+            android:id="@+id/chip6"
             android:text="@string/art_gallery_and_exhibition"
             android:layout_width="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip10"
+            android:id="@+id/chip7"
             android:text="@string/culinary"
             android:layout_width="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"

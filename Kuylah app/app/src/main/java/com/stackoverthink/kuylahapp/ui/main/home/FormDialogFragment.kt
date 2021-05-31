@@ -32,6 +32,7 @@ class FormDialogFragment : DialogFragment() {
     private lateinit var binding: FragmentFormDialogBinding
     private var dataItinerary = MutableLiveData<ItineraryResponse>()
     private var dataSchedule = MutableLiveData<ListItineraryResponse>()
+    private var arrayCategory = ArrayList<String>()
     val gson = Gson()
 
 
@@ -71,18 +72,21 @@ class FormDialogFragment : DialogFragment() {
     }
 
     fun postItinerary() {
+
         val itineraryReq = ItineraryRequest()
         val result: StringBuilder = StringBuilder("")
+        var arrayCategory = ArrayList<String>()
         for (i in 0 until binding.chipGroup.childCount) {
             val chip = binding.chipGroup.getChildAt(i) as Chip
             if (chip.isChecked)
-                result.append(chip.text).append(",")
+                arrayCategory.add(chip.text.toString())
         }
+
 
         itineraryReq.title = binding.etTitle.text.toString()
         itineraryReq.day = binding.etDay.text.toString()
         itineraryReq.budget = binding.etBudget.text.toString()
-        itineraryReq.category = result.toString()
+        itineraryReq.category = arrayCategory.toString()
 
         Log.d("Cek Doang", "cek category ${itineraryReq.category}")
 
