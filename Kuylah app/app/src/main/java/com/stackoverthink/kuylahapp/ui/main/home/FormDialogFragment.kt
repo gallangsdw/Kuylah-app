@@ -1,6 +1,5 @@
 package com.stackoverthink.kuylahapp.ui.main.home
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -8,21 +7,20 @@ import android.util.Log
 import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.type.DateTime
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.stackoverthink.kuylahapp.api.ApiConfig
 import com.stackoverthink.kuylahapp.databinding.FragmentFormDialogBinding
 import com.stackoverthink.kuylahapp.models.Itinerary
 import com.stackoverthink.kuylahapp.response.ItineraryRequest
 import com.stackoverthink.kuylahapp.response.ItineraryResponse
 import com.stackoverthink.kuylahapp.response.ListItineraryResponse
-import com.stackoverthink.kuylahapp.ui.main.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -108,7 +106,6 @@ class FormDialogFragment : DialogFragment() {
         )
         val docRef = db.collection("users/${FirebaseAuth.getInstance().uid}/itineraries").document(itinerary.title.toString())
         docRef.set(dataItinerary.value!!)
-//        var updateTimeStamp = docRef.update()
 
         //Adding the details
         val schedules = itinerary.destination
@@ -140,6 +137,7 @@ class FormDialogFragment : DialogFragment() {
                             day = itinerary.day
                             budget = itinerary.budget
                         }
+                        showSnackbar(newItinerary)
                     }
 
                 val p = destination[j-1]
@@ -147,5 +145,16 @@ class FormDialogFragment : DialogFragment() {
                 Log.d("each destination name", p.nama.toString())
             }
         }
+    }
+
+    private fun showSnackbar(itinerary: Itinerary) {
+        Snackbar.make(binding.btnGenerateItinerary, "Itinerary ditambahkan", Snackbar.LENGTH_LONG)
+            .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+            .setAction("Lihat"){
+                val action = FormDialogFragmentDirections.actionFormDialogFragmentToItineraryDetailFragment23(itinerary)
+                it.findNavController().navigate(action)
+            }
+            .show()
+
     }
 }
