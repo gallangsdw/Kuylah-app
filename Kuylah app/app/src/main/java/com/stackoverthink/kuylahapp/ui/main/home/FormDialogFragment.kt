@@ -131,6 +131,7 @@ class FormDialogFragment : DialogFragment() {
                 db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${itinerary.title.toString()}/schedule/$i/destination/${dataSchedule.value!!.nama}")
                     .set(dataSchedule.value!!)
                     .addOnSuccessListener {
+                        Log.d("send me your location", dataSchedule.value!!.location.toString())
                         val newItinerary = Itinerary()
                         newItinerary.apply {
                             title = itinerary.title

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.itinerary.detail.destination.DestinationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:id="@+id/tv_destination_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/title_destination"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_destination_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/lorem"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_destination_title" />
+
+        <TextView
+            android:id="@+id/tv_destination_htm_weekday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/htm_weekday"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="13sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/dark_grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_destination_description" />
+
+        <TextView
+            android:id="@+id/tv_destination_htm_weekday2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="IDR 20000"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_destination_htm_weekday"
+            app:layout_constraintTop_toBottomOf="@+id/tv_destination_description" />
+
+        <TextView
+            android:id="@+id/tv_destination_htm_weekend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/htm_weekend"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="13sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/dark_grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_destination_htm_weekday" />
+
+        <TextView
+            android:id="@+id/tv_destination_htm_weekend2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/harga"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_destination_htm_weekend"
+            app:layout_constraintTop_toBottomOf="@+id/tv_destination_htm_weekday2" />
+
+        <TextView
+            android:id="@+id/tv_destination_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tipe"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="13sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/dark_grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_destination_htm_weekend" />
+
+        <TextView
+            android:id="@+id/tv_destination_type2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/types"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_destination_htm_weekend"
+            app:layout_constraintTop_toBottomOf="@+id/tv_destination_htm_weekend2" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

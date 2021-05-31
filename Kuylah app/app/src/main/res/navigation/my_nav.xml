@@ -37,6 +37,9 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/itineraryFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_itineraryDetailFragment2_to_destinationFragment"
+            app:destination="@id/destinationFragment" />
     </fragment>
     <fragment
         android:id="@+id/formDialogFragment"
@@ -46,5 +49,14 @@
         <action
             android:id="@+id/action_formDialogFragment_to_itineraryDetailFragment23"
             app:destination="@id/itineraryDetailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/destinationFragment"
+        android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.detail.destination.DestinationFragment"
+        android:label="fragment_destination"
+        tools:layout="@layout/fragment_destination" >
+        <argument
+            android:name="destination"
+            app:argType="com.stackoverthink.kuylahapp.models.Destination" />
     </fragment>
 </navigation>
