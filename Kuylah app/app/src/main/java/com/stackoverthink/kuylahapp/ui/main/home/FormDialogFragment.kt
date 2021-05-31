@@ -8,6 +8,7 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
+import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -63,7 +64,7 @@ class FormDialogFragment : DialogFragment() {
 
     @Suppress("DEPRECATION")
     fun initAction() {
-        binding.btnGenerateItinerary.setOnClickListener {
+            binding.btnGenerateItinerary.setOnClickListener {
                 postItinerary()
                 dialog?.dismiss()
             }
@@ -71,12 +72,19 @@ class FormDialogFragment : DialogFragment() {
 
     fun postItinerary() {
         val itineraryReq = ItineraryRequest()
+        val result: StringBuilder = StringBuilder("")
+        for (i in 0 until binding.chipGroup.childCount) {
+            val chip = binding.chipGroup.getChildAt(i) as Chip
+            if (chip.isChecked)
+                result.append(chip.text).append(",")
+        }
+
         itineraryReq.title = binding.etTitle.text.toString()
         itineraryReq.day = binding.etDay.text.toString()
         itineraryReq.budget = binding.etBudget.text.toString()
-        itineraryReq.category = binding.etCategory.text.toString()
+        itineraryReq.category = result.toString()
 
-        Log.d("Cek DOoang", "cek title ${itineraryReq.title}")
+        Log.d("Cek Doang", "cek category ${itineraryReq.category}")
 
         val client = ApiConfig.getApiService().postItinerary(itineraryReq)
         client.enqueue(object : Callback<ItineraryResponse>{
