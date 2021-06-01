@@ -29,13 +29,13 @@ class ItineraryAdapter(private val listItinerary: ArrayList<Itinerary>) : Recycl
         val itinerary =listItinerary[position]
         Log.d("Ini apa", itinerary.category.toString())
         val builder = StringBuilder()
-        for (s in itinerary.category!!){7
+        for (s in itinerary.category!!){
             builder.append("$s, ")
         }
 
         holder.binding.tvTitleItem.text = itinerary.title
         holder.binding.tvDayPrice.text = "${itinerary.day} D • IDR ${itinerary.budget}"
-        holder.binding.tvCategories.text = builder.toString()
+        holder.binding.tvCategories.text = builder.dropLast(2).toString()
 
         holder.itemView.setOnClickListener {
             val action = ItineraryFragmentDirections.actionItineraryFragmentToItineraryDetailFragment2(itinerary)

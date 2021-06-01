@@ -32,8 +32,8 @@ class ItineraryViewModel : ViewModel() {
                     itinerary.title = document.getString("title")
                     itinerary.day = document.getString("day")
                     itinerary.budget = document.getString("budget")
-                    //itinerary.category = document.get("category") as MutableList<String>?
-                    itinerary.category = mutableListOf("what", "the")
+                    itinerary.category = document.get("category") as MutableList<String>?
+//                    itinerary.category = mutableListOf("what", "the")
                     listItnerary.add(itinerary)
                 }
 

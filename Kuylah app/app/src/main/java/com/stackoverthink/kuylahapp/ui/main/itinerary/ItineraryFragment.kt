@@ -1,6 +1,7 @@
 package com.stackoverthink.kuylahapp.ui.main.itinerary
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -43,7 +44,10 @@ class ItineraryFragment : Fragment() {
             binding.progressBar.visibility = View.GONE
             binding.imgEmpty.visibility = View.VISIBLE
             if (itinerary!=null){
-                showRecycleList(itinerary)
+                if (itinerary.size != 0){
+                    showRecycleList(itinerary)
+                    binding.imgEmpty.visibility = View.GONE
+                }
             }
         })
     }
