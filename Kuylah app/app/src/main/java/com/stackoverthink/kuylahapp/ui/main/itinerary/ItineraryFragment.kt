@@ -43,11 +43,9 @@ class ItineraryFragment : Fragment() {
         itineraryViewModel.getListItineraries().observe(viewLifecycleOwner,{ itinerary ->
             binding.progressBar.visibility = View.GONE
             binding.imgEmpty.visibility = View.VISIBLE
-            if (itinerary!=null){
-                if (itinerary.size != 0){
-                    showRecycleList(itinerary)
-                    binding.imgEmpty.visibility = View.GONE
-                }
+            if (itinerary!=null && itinerary.size!=0){
+                showRecycleList(itinerary)
+                binding.imgEmpty.visibility = View.GONE
             }
         })
     }
