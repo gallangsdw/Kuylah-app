@@ -86,7 +86,7 @@ class FormDialogFragment : DialogFragment() {
         itineraryReq.title = binding.etTitle.text.toString()
         itineraryReq.day = binding.etDay.text.toString()
         itineraryReq.budget = binding.etBudget.text.toString()
-        itineraryReq.category = arrayCategory.toString()
+        itineraryReq.category = arrayCategory
 
         Log.d("Cek Doang", "cek category ${itineraryReq.category}")
 
@@ -111,6 +111,7 @@ class FormDialogFragment : DialogFragment() {
         val db = Firebase.firestore
         dataItinerary.value = ItineraryResponse(
             htmTotal = itinerary.htmTotal,
+            category = itinerary.category,
             title = itinerary.title,
             day = itinerary.day,
             budget = itinerary.budget,

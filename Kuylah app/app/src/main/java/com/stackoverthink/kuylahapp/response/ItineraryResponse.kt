@@ -12,7 +12,7 @@ data class ItineraryResponse(
 	val title: String? = null,
 
 	@field:SerializedName("category")
-	val category: String? = null,
+	val category: ArrayList<String>? = null,
 
 	@field:SerializedName("day")
 	val day: String? = null,

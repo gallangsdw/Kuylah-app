@@ -54,4 +54,8 @@
     <string name="tipe">Tipe Destinasi:</string>
     <string name="types">Alam, Buatan</string>
     <string name="title_destination">Kopi Klotok</string>
+    <string name="desa_wisata">Desa Wisata</string>
+    <string name="wisata_air">Wisata Air</string>
+    <string name="agro">Agrowisata</string>
+    <string name="petualangan">Petualangan</string>
 </resources>
