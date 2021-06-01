@@ -36,9 +36,12 @@ class ItineraryFragment : Fragment() {
         itineraryViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ItineraryViewModel::class.java)
 
         binding.progressBar.visibility = View.VISIBLE
+        binding.imgEmpty.visibility = View.GONE
+
         itineraryViewModel.setItineraries()
         itineraryViewModel.getListItineraries().observe(viewLifecycleOwner,{ itinerary ->
             binding.progressBar.visibility = View.GONE
+            binding.imgEmpty.visibility = View.VISIBLE
             if (itinerary!=null){
                 showRecycleList(itinerary)
             }
