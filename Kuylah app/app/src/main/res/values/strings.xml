@@ -54,4 +54,5 @@
     <string name="tipe">Tipe Destinasi:</string>
     <string name="types">Alam, Buatan</string>
     <string name="title_destination">Kopi Klotok</string>
+    <string name="empty_data">empty data</string>
 </resources>
