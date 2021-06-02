@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
 
     internal var formDialogListener: FormDialogFragment.OnFormDialogListener = object : FormDialogFragment.OnFormDialogListener{
         override fun onItinerary(itinerary: Itinerary?) {
-            Toast.makeText(activity, "\"${itinerary?.title}\" telah dibuat", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, "\"${itinerary?.title}\" telah dibuat", Toast.LENGTH_SHORT).show()
         }
     }
 

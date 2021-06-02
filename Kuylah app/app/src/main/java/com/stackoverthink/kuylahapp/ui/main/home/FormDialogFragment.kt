@@ -92,6 +92,9 @@ class FormDialogFragment : DialogFragment() {
     fun initAction() {
         binding.btnGenerateItinerary.setOnClickListener {
             postItinerary()
+            requireActivity().run {
+                Toast.makeText(this,"silahkan cek tab yang tengah",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -117,7 +120,7 @@ class FormDialogFragment : DialogFragment() {
         client.enqueue(object : Callback<ItineraryResponse>{
             override fun onResponse(call: Call<ItineraryResponse>, response: Response<ItineraryResponse>) {
                 val itinerary = response.body()
-                Log.d("SUKSES COKK", itinerary.toString())
+                Log.d("cie sukses", itinerary.toString())
                 if (itinerary != null) {
                     addItineraryToDatabase(itinerary)
                 }
