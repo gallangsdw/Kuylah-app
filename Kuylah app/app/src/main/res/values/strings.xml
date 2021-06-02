@@ -59,4 +59,6 @@
     <string name="wisata_air">Wisata Air</string>
     <string name="agro">Agrowisata</string>
     <string name="petualangan">Petualangan</string>
+    <string name="rencana_perjalanan">Rencana Perjalanan</string>
+    <string name="btn_back">Kembali</string>
 </resources>

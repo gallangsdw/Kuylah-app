@@ -46,13 +46,12 @@
             android:id="@+id/img_home_illustration"
             android:layout_width="210dp"
             android:layout_height="410dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/home_illustration"
             android:src="@drawable/home_illustration_cropped"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_jogja_is"
-            android:contentDescription="@string/home_illustration" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_jogja_is" />
 
         <Button
             android:id="@+id/btn_create_itinerary"

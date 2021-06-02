@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
@@ -24,6 +25,8 @@ import com.stackoverthink.kuylahapp.models.Itinerary
 import com.stackoverthink.kuylahapp.response.ItineraryRequest
 import com.stackoverthink.kuylahapp.response.ItineraryResponse
 import com.stackoverthink.kuylahapp.response.ListItineraryResponse
+import com.stackoverthink.kuylahapp.ui.auth.AuthenticationActivity
+import com.stackoverthink.kuylahapp.ui.main.itinerary.ItineraryFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -102,7 +105,6 @@ class FormDialogFragment : DialogFragment() {
             if (chip.isChecked)
                 arrayCategory.add(chip.text.toString())
         }
-
 
         itineraryReq.title = binding.etTitle.text.toString()
         itineraryReq.day = binding.etDay.text.toString()

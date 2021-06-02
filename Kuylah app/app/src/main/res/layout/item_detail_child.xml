@@ -27,7 +27,7 @@
         android:id="@+id/txt_destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/inter_medium"
         android:text="@string/destination"
         android:textColor="@color/black"
         android:paddingRight="25dp"
