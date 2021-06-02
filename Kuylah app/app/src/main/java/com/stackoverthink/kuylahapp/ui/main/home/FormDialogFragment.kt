@@ -9,6 +9,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
@@ -35,13 +36,14 @@ import retrofit2.Response
 class FormDialogFragment : DialogFragment() {
 
     private lateinit var binding: FragmentFormDialogBinding
-    private var formDialogListener: OnFormDialogListener? = null
+//    private lateinit var viewModel: SharedViewModel
+//    private var formDialogListener: OnFormDialogListener? = null
     private var dataItinerary = MutableLiveData<ItineraryResponse>()
     private var dataSchedule = MutableLiveData<ListItineraryResponse>()
 
-    interface OnFormDialogListener{
-        fun onItinerary(itinerary: Itinerary?)
-    }
+//    interface OnFormDialogListener{
+//        fun onItinerary(itinerary: Itinerary?)
+//    }
 
 
     override fun onCreateView(
@@ -65,31 +67,31 @@ class FormDialogFragment : DialogFragment() {
         dialog!!.window!!.attributes = params as WindowManager.LayoutParams
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//
+//        val fragment = parentFragment
+//
+//        if (fragment is HomeFragment){
+//            val homeFragment = fragment
+//            this.formDialogListener = homeFragment.formDialogListener
+//        }
+//    }
 
-        val fragment = parentFragment
-
-        if (fragment is HomeFragment){
-            val homeFragment = fragment
-            this.formDialogListener = homeFragment.formDialogListener
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        this.formDialogListener = null
-    }
+//    override fun onDetach() {
+//        super.onDetach()
+//        this.formDialogListener = null
+//    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initAction()
     }
 
     @Suppress("DEPRECATION")
     fun initAction() {
+//        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         binding.btnGenerateItinerary.setOnClickListener {
             postItinerary()
             requireActivity().run {
@@ -171,16 +173,20 @@ class FormDialogFragment : DialogFragment() {
                     .set(dataSchedule.value!!)
                     .addOnSuccessListener {
                         Log.d("send me your location", dataSchedule.value!!.location.toString())
-                        val newItinerary = Itinerary()
-                        newItinerary.apply {
-                            title = itinerary.title
-                            day = itinerary.day
-                            budget = itinerary.budget
-                        }
+//                        val newItinerary = Itinerary()
+//                        newItinerary.apply {
+//                            title = itinerary.title
+//                            day = itinerary.day
+//                            budget = itinerary.budget
+//                        }
+//                        viewModel.sendItinerary(newItinerary)
 //                        val action = HomeFragmentDirections.actionHomeFragmentToItineraryDetailFragment2(newItinerary)
 //                        findNavController().navigate(action)
-                        formDialogListener?.onItinerary(newItinerary)
+//                        formDialogListener?.onItinerary(newItinerary)
                         dialog?.dismiss()
+                    }
+                    .addOnFailureListener {
+                        Log.e("Error gan", "Error adding data", it)
                     }
 
                 val p = destination[j-1]

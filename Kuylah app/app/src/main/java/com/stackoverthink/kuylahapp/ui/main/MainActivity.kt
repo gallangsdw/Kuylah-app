@@ -22,11 +22,9 @@ class MainActivity : AppCompatActivity() {
         var title: TextView = findViewById(R.id.tv_title)
         title.text = getString(R.string.home)
 
-        //val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.itineraryFragment, R.id.settingFragment))
-        //setupActionBarWithNavController(navController, appBarConfiguration)
-
         supportActionBar?.hide()
         navView.setupWithNavController(navController)
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.label){
                 "Beranda" -> {
@@ -45,21 +43,6 @@ class MainActivity : AppCompatActivity() {
                     title.text = getString(R.string.setting)
                 }
             }
-//            if (destination.label == "Beranda"){
-//                Log.d("Hello", getString(R.string.home))
-//                var title: TextView = findViewById(R.id.tv_title)
-//                title.text = getString(R.string.home)
-//            }
-//            else if (destination.label == "Rencana Perjalanan"){
-//                Log.d("Hello", getString(R.string.my_itinerary))
-//                var title: TextView = findViewById(R.id.tv_title)
-//                title.text = getString(R.string.my_itinerary)
-//            }
-//            else if (destination.label == "Profile"){
-//                Log.d("Hello", getString(R.string.setting))
-//                var title: TextView = findViewById(R.id.tv_title)
-//                title.text = getString(R.string.setting)
-//            }
         }
     }
 
