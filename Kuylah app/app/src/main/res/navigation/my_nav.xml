@@ -8,12 +8,16 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.home.HomeFragment"
-        android:label="home"
-        tools:layout="@layout/fragment_home" />
+        android:label="Beranda"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_itineraryDetailFragment22"
+            app:destination="@id/itineraryDetailFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/itineraryFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.ItineraryFragment"
-        android:label="itinerary"
+        android:label="Rencana Perjalanan"
         tools:layout="@layout/fragment_itinerary" >
         <action
             android:id="@+id/action_itineraryFragment_to_itineraryDetailFragment2"
@@ -22,7 +26,7 @@
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.setting.SettingFragment"
-        android:label="setting"
+        android:label="Profile"
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/itineraryDetailFragment2"
@@ -45,11 +49,7 @@
         android:id="@+id/formDialogFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.home.FormDialogFragment"
         android:label="fragment_form_dialog"
-        tools:layout="@layout/fragment_form_dialog" >
-        <action
-            android:id="@+id/action_formDialogFragment_to_itineraryDetailFragment23"
-            app:destination="@id/itineraryDetailFragment2" />
-    </fragment>
+        tools:layout="@layout/fragment_form_dialog" />
     <fragment
         android:id="@+id/destinationFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.detail.destination.DestinationFragment"

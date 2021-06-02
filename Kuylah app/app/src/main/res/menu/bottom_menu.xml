@@ -5,14 +5,11 @@
 
     <item
         android:id="@+id/homeFragment"
-
         android:icon="@drawable/ic_home_24"/>
     <item
         android:id="@+id/itineraryFragment"
-
         android:icon="@drawable/ic_calendar_24" />
     <item
         android:id="@+id/settingFragment"
-
         android:icon="@drawable/ic_settings_24"/>
 </menu>

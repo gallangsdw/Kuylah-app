@@ -1,5 +1,6 @@
 package com.stackoverthink.kuylahapp.ui.main.home
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
@@ -30,10 +32,13 @@ import retrofit2.Response
 class FormDialogFragment : DialogFragment() {
 
     private lateinit var binding: FragmentFormDialogBinding
+    private var formDialogListener: OnFormDialogListener? = null
     private var dataItinerary = MutableLiveData<ItineraryResponse>()
     private var dataSchedule = MutableLiveData<ListItineraryResponse>()
-    private var arrayCategory = ArrayList<String>()
-    val gson = Gson()
+
+    interface OnFormDialogListener{
+        fun onItinerary(itinerary: Itinerary?)
+    }
 
 
     override fun onCreateView(
@@ -57,6 +62,23 @@ class FormDialogFragment : DialogFragment() {
         dialog!!.window!!.attributes = params as WindowManager.LayoutParams
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        val fragment = parentFragment
+
+        if (fragment is HomeFragment){
+            val homeFragment = fragment
+            this.formDialogListener = homeFragment.formDialogListener
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        this.formDialogListener = null
+    }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -65,10 +87,9 @@ class FormDialogFragment : DialogFragment() {
 
     @Suppress("DEPRECATION")
     fun initAction() {
-            binding.btnGenerateItinerary.setOnClickListener {
-                postItinerary()
-                dialog?.dismiss()
-            }
+        binding.btnGenerateItinerary.setOnClickListener {
+            postItinerary()
+        }
     }
 
     fun postItinerary() {
@@ -151,7 +172,10 @@ class FormDialogFragment : DialogFragment() {
                             day = itinerary.day
                             budget = itinerary.budget
                         }
-                        //showSnackbar(newItinerary)
+//                        val action = HomeFragmentDirections.actionHomeFragmentToItineraryDetailFragment2(newItinerary)
+//                        findNavController().navigate(action)
+                        formDialogListener?.onItinerary(newItinerary)
+                        dialog?.dismiss()
                     }
 
                 val p = destination[j-1]
@@ -161,13 +185,5 @@ class FormDialogFragment : DialogFragment() {
         }
     }
 
-    private fun showSnackbar(itinerary: Itinerary) {
-        Snackbar.make(binding.btnGenerateItinerary, "Itinerary ditambahkan", Snackbar.LENGTH_LONG)
-            .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-            .setAction("Lihat"){
-                val action = FormDialogFragmentDirections.actionFormDialogFragmentToItineraryDetailFragment23(itinerary)
-                it.findNavController().navigate(action)
-            }
-            .show()
-    }
+
 }
