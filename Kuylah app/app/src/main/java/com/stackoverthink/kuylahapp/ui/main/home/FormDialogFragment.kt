@@ -6,28 +6,18 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.gson.Gson
 import com.stackoverthink.kuylahapp.api.ApiConfig
 import com.stackoverthink.kuylahapp.databinding.FragmentFormDialogBinding
-import com.stackoverthink.kuylahapp.models.Itinerary
 import com.stackoverthink.kuylahapp.response.ItineraryRequest
 import com.stackoverthink.kuylahapp.response.ItineraryResponse
 import com.stackoverthink.kuylahapp.response.ListItineraryResponse
-import com.stackoverthink.kuylahapp.ui.auth.AuthenticationActivity
-import com.stackoverthink.kuylahapp.ui.main.itinerary.ItineraryFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,14 +26,13 @@ import retrofit2.Response
 class FormDialogFragment : DialogFragment() {
 
     private lateinit var binding: FragmentFormDialogBinding
-//    private lateinit var viewModel: SharedViewModel
-//    private var formDialogListener: OnFormDialogListener? = null
+    private var formDialogListener: OnFormDialogListener? = null
     private var dataItinerary = MutableLiveData<ItineraryResponse>()
     private var dataSchedule = MutableLiveData<ListItineraryResponse>()
 
-//    interface OnFormDialogListener{
-//        fun onItinerary(itinerary: Itinerary?)
-//    }
+    interface OnFormDialogListener{
+        fun onItinerary()
+    }
 
 
     override fun onCreateView(
@@ -67,21 +56,20 @@ class FormDialogFragment : DialogFragment() {
         dialog!!.window!!.attributes = params as WindowManager.LayoutParams
     }
 
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//
-//        val fragment = parentFragment
-//
-//        if (fragment is HomeFragment){
-//            val homeFragment = fragment
-//            this.formDialogListener = homeFragment.formDialogListener
-//        }
-//    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val fragment = parentFragment
 
-//    override fun onDetach() {
-//        super.onDetach()
-//        this.formDialogListener = null
-//    }
+        if (fragment is HomeFragment){
+            val homeFragment = fragment
+            this.formDialogListener = homeFragment.formDialogListener
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        this.formDialogListener = null
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -91,19 +79,16 @@ class FormDialogFragment : DialogFragment() {
 
     @Suppress("DEPRECATION")
     fun initAction() {
-//        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         binding.btnGenerateItinerary.setOnClickListener {
             postItinerary()
-            requireActivity().run {
-                Toast.makeText(this,"silahkan cek tab yang tengah",Toast.LENGTH_SHORT).show()
-            }
+            formDialogListener?.onItinerary()
+            dialog?.dismiss()
         }
     }
 
     fun postItinerary() {
 
         val itineraryReq = ItineraryRequest()
-        val result: StringBuilder = StringBuilder("")
         var arrayCategory = ArrayList<String>()
         for (i in 0 until binding.chipGroup.childCount) {
             val chip = binding.chipGroup.getChildAt(i) as Chip
@@ -173,17 +158,6 @@ class FormDialogFragment : DialogFragment() {
                     .set(dataSchedule.value!!)
                     .addOnSuccessListener {
                         Log.d("send me your location", dataSchedule.value!!.location.toString())
-//                        val newItinerary = Itinerary()
-//                        newItinerary.apply {
-//                            title = itinerary.title
-//                            day = itinerary.day
-//                            budget = itinerary.budget
-//                        }
-//                        viewModel.sendItinerary(newItinerary)
-//                        val action = HomeFragmentDirections.actionHomeFragmentToItineraryDetailFragment2(newItinerary)
-//                        findNavController().navigate(action)
-//                        formDialogListener?.onItinerary(newItinerary)
-                        dialog?.dismiss()
                     }
                     .addOnFailureListener {
                         Log.e("Error gan", "Error adding data", it)

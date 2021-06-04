@@ -36,41 +36,17 @@ class HomeFragment : Fragment() {
 
 
         binding.btnCreateItinerary.setOnClickListener {
-
             val mFormDialogFragment = FormDialogFragment()
             val mFragmentManager = childFragmentManager
             mFormDialogFragment.show(mFragmentManager, FormDialogFragment::class.java.simpleName)
         }
     }
 
-//    override fun onResume() {
-//        super.onResume()
-//        Log.d("Hello", "Im under water pillow")
-//        sharedViewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
-//        sharedViewModel.itinerary.observe(viewLifecycleOwner, Observer {
-//            Log.d("Hello", it.toString())
-//            Toast.makeText(activity, "\"${it?.title}\" telah dibuat", Toast.LENGTH_SHORT).show()
-//        })
-//    }
 
-
-//    internal var formDialogListener: FormDialogFragment.OnFormDialogListener = object : FormDialogFragment.OnFormDialogListener{
-//        override fun onItinerary(itinerary: Itinerary?) {
-//            val navView: BottomNavigationView = requireActivity().findViewById(R.id.bottom_nav)
-//            val action = HomeFragmentDirections.actionHomeFragmentToItineraryDetailFragment22(itinerary!!)
-//            binding.root.findNavController().navigate(action)
-//            val item: MenuItem = navView.menu.findItem(R.id.itineraryFragment)
-//            item.setChecked(true)
-//            Toast.makeText(activity, "\"${itinerary?.title}\" telah dibuat", Toast.LENGTH_SHORT).show()
-//        }
-//    }
-
-//    private fun showSnackbar(itinerary: Itinerary) {
-//        Snackbar.make(binding.btnCreateItinerary, "Rencana perjalanan ditambahkan", Snackbar.LENGTH_LONG)
-//            .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
-//            .setAction("Lihat"){
-//
-//            }
-//            .show()
-//    }
+    internal var formDialogListener: FormDialogFragment.OnFormDialogListener = object : FormDialogFragment.OnFormDialogListener{
+        override fun onItinerary() {
+            binding.root.findNavController().navigate(R.id.action_homeFragment_to_itineraryFragment)
+            Toast.makeText(activity, "Rencana perjalanan telah dibuat", Toast.LENGTH_SHORT).show()
+        }
+    }
 }
