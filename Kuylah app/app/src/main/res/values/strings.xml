@@ -7,6 +7,7 @@
     <string name="sign_in_with_google">Masuk dengan Google</string>
     <string name="home">Beranda</string>
     <string name="my_itinerary">Rencana Perjalananku</string>
+    <string name="favorite">Favorite</string>
     <string name="setting">Profil</string>
     <string name="welcome_to_jogja">Sugeng Rawuh!</string>
     <string name="jogja_is">Mulai petualanganmu sekarang, karena selalu ada sesuatu di Yogyakarta!</string>
@@ -61,4 +62,6 @@
     <string name="petualangan">Petualangan</string>
     <string name="rencana_perjalanan">Rencana Perjalanan</string>
     <string name="btn_back">Kembali</string>
+    <string name="beranda">Beranda</string>
+    <string name="jadwal">Jadwal</string>
 </resources>

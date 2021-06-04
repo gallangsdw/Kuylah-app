@@ -59,4 +59,9 @@
             android:name="destination"
             app:argType="com.stackoverthink.kuylahapp.models.Destination" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.stackoverthink.kuylahapp.ui.main.favorite.FavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>
