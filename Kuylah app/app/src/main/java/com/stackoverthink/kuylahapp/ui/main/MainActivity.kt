@@ -37,6 +37,11 @@ class MainActivity : AppCompatActivity() {
                     var title: TextView = findViewById(R.id.tv_title)
                     title.text = getString(R.string.my_itinerary)
                 }
+                "Favorite" ->{
+                    Log.d("Hello","Favorite")
+                    var title: TextView = findViewById(R.id.tv_title)
+                    title.text = getString(R.string.favorite)
+                }
                 "Profile" ->{
                     Log.d("Hello", getString(R.string.setting))
                     var title: TextView = findViewById(R.id.tv_title)
