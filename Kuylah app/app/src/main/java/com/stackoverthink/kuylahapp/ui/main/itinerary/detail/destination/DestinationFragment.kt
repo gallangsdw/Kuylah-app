@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.FragmentDestinationBinding
+import java.text.NumberFormat
+import java.util.*
 
 class DestinationFragment : Fragment() {
 
@@ -29,10 +30,16 @@ class DestinationFragment : Fragment() {
 
         val destination = args.destination
 
+        val _weekday = destination.htmWeekday
+        val weekday = NumberFormat.getNumberInstance(Locale.US).format(_weekday)
+
+        val _weekend = destination.htmWeekend?.toDouble()
+        val weekend = NumberFormat.getNumberInstance(Locale.US).format(_weekend)
+
         binding.tvDestinationTitle.text = destination.nama
         binding.tvDestinationDescription.text = destination.description
-        binding.tvDestinationHtmWeekday2.text = destination.htmWeekday.toString()
-        binding.tvDestinationHtmWeekend2.text = destination.htmWeekend
+        binding.tvDestinationHtmWeekday2.text = "Rp. $weekday"
+        binding.tvDestinationHtmWeekend2.text = "Rp. $weekend"
         binding.tvDestinationType2.text = destination.type
     }
 }
