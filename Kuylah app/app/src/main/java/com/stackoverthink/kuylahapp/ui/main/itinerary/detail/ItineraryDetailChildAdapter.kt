@@ -1,5 +1,6 @@
 package com.stackoverthink.kuylahapp.ui.main.itinerary.detail
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.ItemDetailChildBinding
 import com.stackoverthink.kuylahapp.models.Destination
+import com.stackoverthink.kuylahapp.ui.main.itinerary.detail.destination.DestinatinActivity
 import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -36,8 +38,10 @@ class ItineraryDetailChildAdapter (private val listDestination: ArrayList<Destin
         holder.binding.txtHours.text = "Rp. $budget"
 
         holder.itemView.setOnClickListener {
-            val action = ItineraryDetailFragmentDirections.actionItineraryDetailFragment2ToDestinationFragment(destination)
-            it.findNavController().navigate(action)
+            val intent = Intent(it.context, DestinatinActivity::class.java)
+            it.context.startActivity(intent)
+//            val action = ItineraryDetailFragmentDirections.actionItineraryDetailFragment2ToDestinationFragment(destination)
+//            it.findNavController().navigate(action)
         }
     }
 

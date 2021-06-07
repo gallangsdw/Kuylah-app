@@ -5,12 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.navArgs
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.stackoverthink.kuylahapp.databinding.FragmentDestinationBinding
 import java.text.NumberFormat
 import java.util.*
 
-class DestinationFragment : Fragment() {
+class DestinationFragment : Fragment(), OnMapReadyCallback{
 
     private lateinit var binding: FragmentDestinationBinding
 
@@ -41,5 +48,17 @@ class DestinationFragment : Fragment() {
         binding.tvDestinationHtmWeekday2.text = "Rp. $weekday"
         binding.tvDestinationHtmWeekend2.text = "Rp. $weekend"
         binding.tvDestinationType2.text = destination.type
+    }
+
+    override fun onMapReady(p0: GoogleMap) {
+        p0.apply {
+            val sydney = LatLng(-33.852, 151.211)
+            addMarker(
+                MarkerOptions()
+                    .position(sydney)
+                    .title("Marker in Sydney")
+            )
+            moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        }
     }
 }
