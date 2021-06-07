@@ -149,7 +149,8 @@ class FormDialogFragment : DialogFragment() {
                 htmWeekday = destination[j-1].htmWeekday,
                 description = destination[j-1].description,
                 htmWeekend = destination[j-1].htmWeekend,
-                location = destination[j-1].location,
+                latitude = destination[j-1].latitude,
+                longitude = destination[j-1].longitude,
                 type = destination[j-1].type,
                 voteCount = destination[j-1].voteCount
             )
@@ -157,7 +158,7 @@ class FormDialogFragment : DialogFragment() {
                 db.document("users/${FirebaseAuth.getInstance().uid}/itineraries/${itinerary.title.toString()}/schedule/$i/destination/${dataSchedule.value!!.nama}")
                     .set(dataSchedule.value!!)
                     .addOnSuccessListener {
-                        Log.d("send me your location", dataSchedule.value!!.location.toString())
+                        Log.d("send me your location", dataSchedule.value!!.latitude.toString())
                     }
                     .addOnFailureListener {
                         Log.e("Error gan", "Error adding data", it)
