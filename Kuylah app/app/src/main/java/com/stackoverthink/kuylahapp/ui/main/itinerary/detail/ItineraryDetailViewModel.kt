@@ -68,7 +68,8 @@ class ItineraryDetailViewModel : ViewModel() {
                             htmWeekday = document.getDouble("htmWeekday")
                             description = document.getString("description")
                             htmWeekend = document.getString("htmWeekend")
-                            location = document.getString("location")
+                            latitude = document.getDouble("latitude")
+                            longitude = document.getDouble("longitude")
                             type = document.getString("type")
                             voteCount = document.getDouble("voteCount")
                         }

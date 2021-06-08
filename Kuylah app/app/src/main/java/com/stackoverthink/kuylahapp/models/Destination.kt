@@ -17,7 +17,9 @@ data class Destination(
 
     var htmWeekend: String? = null,
 
-    var location: String? = null,
+    var latitude: Double? = null,
+
+    var longitude: Double? = null,
 
     var type: String? = null,
 

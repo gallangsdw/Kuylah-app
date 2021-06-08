@@ -21,6 +21,9 @@ class DestinationFragment : Fragment(), OnMapReadyCallback{
 
     private lateinit var binding: FragmentDestinationBinding
     private lateinit var mMap: GoogleMap
+    private lateinit var location: LatLng
+    private lateinit var markTitle: String
+
 
 
     private val args by navArgs<DestinationFragmentArgs>()
@@ -39,6 +42,9 @@ class DestinationFragment : Fragment(), OnMapReadyCallback{
 
         val destination = args.destination
 
+        location = LatLng(destination.latitude!!, destination.longitude!!)
+        markTitle = destination.nama!!
+
         val _weekday = destination.htmWeekday
         val weekday = NumberFormat.getNumberInstance(Locale.US).format(_weekday)
 
@@ -51,6 +57,8 @@ class DestinationFragment : Fragment(), OnMapReadyCallback{
         binding.tvDestinationHtmWeekend2.text = "Rp. $weekend"
         binding.tvDestinationType2.text = destination.type
 
+
+
         val mapFragment = childFragmentManager
             .findFragmentById(R.id.fr_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -58,18 +66,17 @@ class DestinationFragment : Fragment(), OnMapReadyCallback{
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        val example = LatLng(-8.003873302, 110.27037560000001)
         mMap = googleMap
         mMap.setMinZoomPreference(1f)
         mMap.setMaxZoomPreference(30f)
-        updateMap(example)
+        updateMap(location, markTitle)
     }
 
-    private fun updateMap(location: LatLng) {
+    private fun updateMap(location: LatLng, markTitle: String) {
         mMap.addMarker(
             MarkerOptions()
                 .position(location)
-                .title("Rumah Siape ni?")
+                .title(markTitle)
         )
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12f))
     }
