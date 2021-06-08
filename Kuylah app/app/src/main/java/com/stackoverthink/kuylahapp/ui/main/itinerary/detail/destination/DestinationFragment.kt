@@ -12,6 +12,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.FragmentDestinationBinding
 import java.text.NumberFormat
@@ -39,6 +40,11 @@ class DestinationFragment : Fragment(), OnMapReadyCallback{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        BottomSheetBehavior.from(binding.sheet).apply {
+            peekHeight = 200
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
 
         val destination = args.destination
 
