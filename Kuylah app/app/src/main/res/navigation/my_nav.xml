@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/itineraryDetailFragment2"
         android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.detail.ItineraryDetailFragment"
-        android:label="ItineraryDetailFragment" >
+        android:label="Itinerary Detail Fragment" >
         <argument
             android:name="itinerary"
             app:argType="com.stackoverthink.kuylahapp.models.Itinerary" />
@@ -56,15 +56,10 @@
     <fragment
         android:id="@+id/destinationFragment"
         android:name="com.stackoverthink.kuylahapp.ui.main.itinerary.detail.destination.DestinationFragment"
-        android:label="fragment_destination"
+        android:label="Destination Fragment"
         tools:layout="@layout/fragment_destination" >
         <argument
             android:name="destination"
             app:argType="com.stackoverthink.kuylahapp.models.Destination" />
     </fragment>
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.stackoverthink.kuylahapp.ui.main.favorite.FavoriteFragment"
-        android:label="Favorite"
-        tools:layout="@layout/fragment_favorite" />
 </navigation>

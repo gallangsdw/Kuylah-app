@@ -17,21 +17,5 @@
         android:textColor="@color/black"
         android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="190dp"
-        android:layout_marginRight="190dp"
-        android:layout_marginBottom="16dp"
-        android:layout_toStartOf="@+id/tv_title"
-        android:layout_toLeftOf="@+id/tv_title"
-        android:fontFamily="@font/inter_medium"
-        android:textColor="@color/blue_kuylah"
-        android:text="@string/btn_back" />
-
 
 </RelativeLayout>
