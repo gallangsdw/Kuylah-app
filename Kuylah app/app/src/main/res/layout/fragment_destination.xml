@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="5dp">
 
         <TextView
             android:id="@+id/tv_destination_title"
@@ -27,13 +27,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
-            android:id="@+id/frameMaps"
+        <fragment
+            android:id="@+id/fr_map"
             android:layout_width="380dp"
             android:layout_height="250dp"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_destination_title" />
+            app:layout_constraintTop_toBottomOf="@id/tv_destination_title"/>
 
         <TextView
             android:id="@+id/tv_destination_description"
@@ -46,7 +47,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameMaps" />
+            app:layout_constraintTop_toBottomOf="@+id/fr_map" />
 
         <TextView
             android:id="@+id/tv_destination_htm_weekday"

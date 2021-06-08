@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.navArgs
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,6 +12,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.stackoverthink.kuylahapp.R
 import com.stackoverthink.kuylahapp.databinding.FragmentDestinationBinding
 import java.text.NumberFormat
 import java.util.*
@@ -20,6 +20,8 @@ import java.util.*
 class DestinationFragment : Fragment(), OnMapReadyCallback{
 
     private lateinit var binding: FragmentDestinationBinding
+    private lateinit var mMap: GoogleMap
+
 
     private val args by navArgs<DestinationFragmentArgs>()
 
@@ -48,17 +50,28 @@ class DestinationFragment : Fragment(), OnMapReadyCallback{
         binding.tvDestinationHtmWeekday2.text = "Rp. $weekday"
         binding.tvDestinationHtmWeekend2.text = "Rp. $weekend"
         binding.tvDestinationType2.text = destination.type
+
+        val mapFragment = childFragmentManager
+            .findFragmentById(R.id.fr_map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
     }
 
-    override fun onMapReady(p0: GoogleMap) {
-        p0.apply {
-            val sydney = LatLng(-33.852, 151.211)
-            addMarker(
-                MarkerOptions()
-                    .position(sydney)
-                    .title("Marker in Sydney")
-            )
-            moveCamera(CameraUpdateFactory.newLatLng(sydney))
-        }
+    override fun onMapReady(googleMap: GoogleMap) {
+        val example = LatLng(-8.003873302, 110.27037560000001)
+        mMap = googleMap
+        mMap.setMinZoomPreference(1f)
+        mMap.setMaxZoomPreference(30f)
+        updateMap(example)
     }
+
+    private fun updateMap(location: LatLng) {
+        mMap.addMarker(
+            MarkerOptions()
+                .position(location)
+                .title("Rumah Siape ni?")
+        )
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12f))
+    }
+
 }
