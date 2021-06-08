@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
                     val fragment: View = findViewById(R.id.fragment)
                     val params = fragment.layoutParams as ViewGroup.MarginLayoutParams
-                    params.topMargin = 200
+                    params.topMargin = 130
                     fragment.layoutParams = params
                 }
                 "Rencana Perjalanan" ->{
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     title.text = getString(R.string.my_itinerary)
                     val fragment: View = findViewById(R.id.fragment)
                     val params = fragment.layoutParams as ViewGroup.MarginLayoutParams
-                    params.topMargin = 200
+                    params.topMargin = 130
                     fragment.layoutParams = params
                 }
                 "Profile" ->{
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                     title.text = getString(R.string.setting)
                     val fragment: View = findViewById(R.id.fragment)
                     val params = fragment.layoutParams as ViewGroup.MarginLayoutParams
-                    params.topMargin = 200
+                    params.topMargin = 130
                     fragment.layoutParams = params
                 }
                 "Itinerary Detail Fragment"->{
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                     title.text = getString(R.string.my_itinerary)
                     val fragment: View = findViewById(R.id.fragment)
                     val params = fragment.layoutParams as ViewGroup.MarginLayoutParams
-                    params.topMargin = 200
+                    params.topMargin = 130
                     fragment.layoutParams = params
                 }
                 "Destination Fragment" ->{
