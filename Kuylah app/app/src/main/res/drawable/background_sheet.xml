@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="419dp"
+    android:height="667dp"
+    android:viewportWidth="419"
+    android:viewportHeight="667">
+
+    <group>
+        <clip-path
+            android:pathData="M43.5 3.5H375.5C397.591 3.5 415.5 21.4086 415.5 43.5V623.5C415.5 645.591 397.591 663.5 375.5 663.5H43.5C21.4086 663.5 3.5 645.591 3.5 623.5V43.5C3.5 21.4086 21.4086 3.5 43.5 3.5Z"
+            tools:ignore="VectorRaster" />
+
+        <group
+            android:translateX="0"
+            android:translateY="-1.39"
+            android:pivotX="209.5"
+            android:pivotY="333.5"
+            android:scaleX="5.657"
+            android:scaleY="4.293"
+            android:rotation="45">
+
+            <path
+                android:pathData="M3.5 3.5V663.5H415.5V3.5">
+
+                <aapt:attr name="android:fillColor">
+
+                    <gradient
+                        android:type="radial"
+                        android:centerX="209.5"
+                        android:centerY="333.5"
+                        android:gradientRadius="103">
+
+                        <item
+                            android:color="#D9FFFFFF"
+                            android:offset="0" />
+
+                        <item
+                            android:color="#8CFFFFFF"
+                            android:offset="1" />
+
+                    </gradient>
+                </aapt:attr>
+            </path>
+        </group>
+    </group>
+    <group>
+
+        <clip-path
+            android:pathData="M0 0V667H419V0M43.5 3.5H375.5C397.591 3.5 415.5 21.4086 415.5 43.5V623.5C415.5 645.591 397.591 663.5 375.5 663.5H43.5C21.4086 663.5 3.5 645.591 3.5 623.5V43.5C3.5 21.4086 21.4086 3.5 43.5 3.5Z"
+            tools:ignore="VectorRaster" />
+
+    </group>
+
+</vector>

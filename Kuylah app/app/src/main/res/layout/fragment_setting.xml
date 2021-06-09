@@ -108,34 +108,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_email_title"
         android:gravity="center_horizontal" />
 
-    <TextView
-        android:id="@+id/tv_phone_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/phone_title"
-        android:fontFamily="@font/inter_semibold"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_email" />
-
-    <TextView
-        android:id="@+id/tv_phone_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/inter_regular"
-        android:text="@string/phone_number"
-        android:textColor="@color/black"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_phone_title"
-        android:gravity="center_horizontal" />
-
  <Button
      android:id="@+id/button"
      style="?android:attr/borderlessButtonStyle"

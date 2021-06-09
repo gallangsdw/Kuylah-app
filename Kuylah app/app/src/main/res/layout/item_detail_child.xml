@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingVertical="10dp"
+    android:layout_height="wrap_content">
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height=""-->
+<!--        android:text="@string/dot"-->
+<!--        android:textColor="@color/blue_kuylah"-->
+<!--        android:textSize="50sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <ImageView
+        android:id="@+id/bullet"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/ic_bullet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:text="@string/destination"
+        android:textColor="@color/black"
+        android:paddingRight="25dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/bullet"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_destination"
+        android:fontFamily="@font/inter_regular"
+        android:textSize="15sp"
+        android:text="@string/time"
+        app:layout_constraintStart_toEndOf="@+id/bullet"
+        app:layout_constraintTop_toBottomOf="@+id/txt_destination" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
