@@ -64,4 +64,5 @@
     <string name="btn_back">Kembali</string>
     <string name="beranda">Beranda</string>
     <string name="jadwal">Jadwal</string>
+    <string name="categories">Alam, Pantai, Museum</string>
 </resources>

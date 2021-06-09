@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:orientation="vertical">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_item_note"
         android:layout_width="match_parent"
@@ -13,79 +15,65 @@
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
         app:cardMaxElevation="4dp"
-        app:cardUseCompatPadding="true">
-        <LinearLayout
+        app:cardUseCompatPadding="true"
+        android:backgroundTint="@color/blue_kuylah"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal"
-            android:background="@color/blue_kuylah">
+            android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/itinerary_pic"/>
+                android:background="@drawable/itinerary_pic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="10dp"
-                android:orientation="vertical"
+            <TextView
+                android:id="@+id/tv_title_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semibold"
+                android:text="@string/itinerary_title"
+                android:textColor="@color/white"
                 android:paddingRight="10dp"
-                android:paddingEnd="10dp">
+                android:paddingTop="5dp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tv_title_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/inter_semibold"
-                    android:text="@string/item_title" />
+            <TextView
+                android:id="@+id/tv_day_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/day_price"
+                android:textColor="@color/white"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_item"/>
 
-                <TextView
-                    android:id="@+id/tv_day_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/inter_regular"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/day_price" />
+            <TextView
+                android:id="@+id/tv_categories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/categories"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/tv_day_price" />
 
-                <TextView
-                    android:id="@+id/tv_categories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/inter_regular"
-                    android:layout_marginTop="5dp"
-                    android:text="adasdad, asddasd, afdfaf, sfgsgs, sdgsdfsdf, sdf, sdfsfsdf, sdfsfsdf, dfsdfsdf " />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_item_date"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginBottom="16dp"-->
-<!--                android:gravity="start"-->
-<!--                android:text="Whatever"-->
-<!--                android:textSize="12sp" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_item_title"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginBottom="4dp"-->
-<!--                android:gravity="start"-->
-<!--                android:text="whatever"-->
-<!--                android:textSize="16sp"-->
-<!--                android:textStyle="bold" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_item_description"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="start"-->
-<!--                android:text="whatever"-->
-<!--                android:textSize="14sp" />-->
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
